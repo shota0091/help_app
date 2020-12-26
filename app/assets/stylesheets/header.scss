@@ -1,0 +1,63 @@
+@mixin list {
+  margin-left: 15px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+@mixin btn {
+  text-decoration: none;
+  color:black;
+}
+
+.header{
+  display: flex;
+  align-items: flex-end;
+  margin: 20px 0px 20px 20px;
+  &__logs{
+    font-family: 'Wawati SC',sans-serif;
+    width: 100%;
+    .explanation{
+      font-size: 15px;
+    }
+    .title{
+      font-size: 35px;
+      .link_title{
+        @include btn;
+      }
+    }
+  }
+  &__contents{
+    width: 70%;
+    display: flex;
+    @media(min-width: 1068px) {
+      width: 30%;
+    }
+    .menu{
+      height: 10%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      border-bottom: 1px solid yellowgreen;
+      &__LogIn{
+        @include list;
+        .LogIn-btn{
+          @include btn;
+        }
+      }
+      &__registration{
+        @include list;
+        .registration-btn{
+          @include btn;
+        }
+      }
+      &__GuestLogIn{
+        @include list;
+        margin-right: 20px;
+        .GuestLogIn-btn{
+          @include btn;
+        }
+      }
+    }
+  }
+}
