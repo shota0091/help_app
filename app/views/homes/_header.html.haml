@@ -1,0 +1,22 @@
+.header
+  .header__logs
+    .explanation
+      犬の散歩から専門業務まで
+    .title
+      = link_to "たすけあい" ,"/" , class:"link_title"
+  .header__contents
+    %ul.menu
+      - if user_signed_in?
+        %li.menu__LogIn
+          = link_to "新規投稿",new_post_path ,class:"LogIn-btn"
+        %li.menu__registration
+          = link_to "マイページ",new_user_registration_path,class:"registration-btn"
+        %li.menu__GuestLogIn
+          = link_to "ログアウト",destroy_user_session_path, method: :delete,class:"GuestLogIn-btn"
+      - else
+        %li.menu__LogIn
+          = link_to "ログイン",new_user_session_path,class:"LogIn-btn"
+        %li.menu__registration
+          = link_to "会員登録",new_user_registration_path,class:"registration-btn"
+        %li.menu__GuestLogIn
+          = link_to "ゲストログイン",users_guest_sign_in_path, method: :post,class:"GuestLogIn-btn"

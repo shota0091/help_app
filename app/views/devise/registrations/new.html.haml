@@ -1,27 +1,53 @@
-= render "posts/header"
-.register
-  .register__page
-    新規登録をしよう
-    .register__page__form
+= render "homes/header"
+.LogIn
+  .LogIn__page
+    .LogIn__page__title
+      Sing Up
+    .LogIn__page__boder
+    .Form
       = form_with model: @user, url: user_registration_path, id: 'new-user', class: 'new_user',local: true do |f|
-        .FormField__name
-          = f.text_field :name, autofocus: true,placeholder: "name", class: "FormField__group"
-
-        .FormField__email
-          = f.email_field :email,placeholder: "email address", class: "FormField__group"
-
-        .FormField__email
-          = f.number_field :email,placeholder: "age", class: "FormField__group"
-
-        .FormField__passwerd
-          = f.password_field :password,autocomplete: "off",placeholder: "password", class: "FormField__group"
-
-        .FormField__passwerd
-          = f.password_field :password,autocomplete: "off",placeholder: "one more password", class: "FormField__group"
-
+        .Form__name
+          .Form__name__title
+            ニックネーム※
+          .Form__name__InputForm
+            = f.text_field :name, autofocus: true,placeholder: "name", class: "FormField__name"
+            .error__message
+              - if @user.errors.include?(:name)
+                = @user.errors.full_messages_for(:name).first
+        .Form__email
+          .Form__email__title
+            メールアドレス※
+          .Form__email__InputForm
+            = f.email_field :email,placeholder: "email address", class: "FormField__email"
+            .error__message
+              - if @user.errors.include?(:email)
+                = @user.errors.full_messages_for(:email).first
+        .Form__age
+          .Form__age__title
+            年齢※
+          .Form__age__InputForm
+            = f.number_field :age ,placeholder: "age", class: "FormField__age"
+            .error__message
+              - if @user.errors.include?(:age)
+                = @user.errors.full_messages_for(:age).first
+        .Form__passwerd
+          .Form__passwerd__title
+            パスワード※
+          .Form__passwerd__InputForm
+            = f.password_field :password,autocomplete: "off",placeholder: "password", class: "FormField__passwerd"
+            .error__message
+              - if @user.errors.include?(:password)
+                = @user.errors.full_messages_for(:password).first
+        .Form__ReEnter
+          .Form__ReEnter__title
+            パスワード(確認用)※
+          .Form__ReEnter__InputForm
+            = f.password_field :password,autocomplete: "off",placeholder: "one more password", class: "FormField__ReEnter"
+            .error__message
+              - if @user.errors.include?(:password)
+                = @user.errors.full_messages_for(:password).first
         .actions
           = f.submit "Sign up", class: "SubmitBtn"
-
     .MemberRegister__page__SignIn
       アカウントお持ちの方
-      = link_to "サインインする", new_user_session_path
+      = link_to "サインイン", new_user_session_path
