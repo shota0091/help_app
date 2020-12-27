@@ -1,3 +1,37 @@
-= render "posts/header"
-.MemberRegister
-  
+= render "homes/header"
+.LogIn
+  .LogIn__page
+    .LogIn__page__title
+      Log In
+    .LogIn__page__boder
+    .Form
+      = form_with model: @user, url: new_user_session_path, id: 'new-user', class: 'new_user',local: true do |f|
+        .Form__email
+          .Form__email__title
+            メールアドレス※
+          .Form__email__InputForm
+            = f.email_field :email,placeholder: "email address", class: "FormField__email"
+            .error__message
+              - if @user.errors.include?(:email)
+                = @user.errors.full_messages_for(:email).first
+        .Form__passwerd
+          .Form__passwerd__title
+            パスワード※
+          .Form__passwerd__InputForm
+            = f.password_field :password,autocomplete: "off",placeholder: "password", class: "FormField__passwerd"
+            .error__message
+              - if @user.errors.include?(:password)
+                = @user.errors.full_messages_for(:password).first
+        .Form__ReEnter
+          .Form__ReEnter__title
+            パスワード(確認用)※
+          .Form__ReEnter__InputForm
+            = f.password_field :password,autocomplete: "off",placeholder: "one more password", class: "FormField__ReEnter"
+            .error__message
+              - if @user.errors.include?(:password)
+                = @user.errors.full_messages_for(:password).first
+        .actions
+          = f.submit "Sign up", class: "SubmitBtn"
+    .MemberRegister__page__SignIn
+      アカウントお持ちの方
+      = link_to "新規登録", new_user_registration_path
