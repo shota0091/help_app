@@ -34,15 +34,15 @@
       .info__registration
         先ずは会員登録をしよう！
         .info__registration__menber
-          = link_to "会員登録", new_user_registration_path
+          = link_to "会員登録", new_user_registration_path,class:"link-registration"
       .info__LogIn
-        = link_to "会員登録している方はこちら",new_user_session_path
+        = link_to "会員登録している方はこちら",new_user_session_path,class:"link-LogIn"
       .info__terms
-        = link_to "利用規約","#"
+        = link_to "利用規約","#",class:"link-terms"
       .info__PrivacyPolicy
-        = link_to "プライバシーポリシー","#"
+        = link_to "プライバシーポリシー","#",class:"link-PrivacyPolicy"
       .info__inquiry
-        = link_to "お問い合わせ", "#"
+        = link_to "お問い合わせ", "#",class:"link-inquiry"
   .main__copyright
     ©︎2020 たすけあい
 

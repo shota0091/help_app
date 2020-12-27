@@ -81,17 +81,35 @@
       &__registration{
         font-size: 30px;
         &__menber{
-          @include font
+          @include font;
+          .link-registration{
+            @include btn
+          }
         }
       }
       &__LogIn{
-        @include font
+        @include font;
+        .link-LogIn{
+          @include btn
+        }
+      }
+      &__terms{
+        @include font;
+        .link-terms{
+          @include btn
+        }
       }
       &__PrivacyPolicy{
-        @include font
+        @include font;
+        .link-PrivacyPolicy{
+          @include btn
+        }
       }
       &__inquiry{
-        @include font
+        @include font;
+        .link-inquiry{
+          @include btn
+        }
       }
     }
   }
@@ -99,5 +117,6 @@
     text-align: center;
     margin: 30px 0 10px;
     font-size: 12px;
+    color: lightgray;
   }
 }
