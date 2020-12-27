@@ -1,1 +1,48 @@
 = render "header"
+.main
+  .main__TopImage
+    = image_tag ("12316.jpg"), class:"Image"
+  .main__contents
+    .CatchCopy
+      世界を変える
+      %span.title たすけあい
+    .heading
+      WEBアプリ
+      %span.title たすけあい
+      でできる3つの事
+    .CanDo
+      %ul.list
+        %li.list__frist
+          = icon('fas', 'handshake')
+          .list__frist__title
+            繋がりができる
+          .list__frist__description
+            スマホ、PCで繋がっているからこそできる事
+        %li.list__second
+          = icon('fas', 'mobile-alt')
+          .list__second__title
+            スマホ１台でカンタン登録
+          .list__second__description
+            登録まで３分、急ぎの方でもスグに投稿できる
+        %li.list__third
+          = icon('fas', 'wrench')
+          .list__third__title
+            あなたの技術が役に立つ
+          .list__third__description
+            皆さんの経験、技術が困っている人を助けます
+    .info
+      .info__registration
+        先ずは会員登録をしよう！
+        .info__registration__menber
+          = link_to "会員登録", new_user_registration_path,class:"link-registration"
+      .info__LogIn
+        = link_to "会員登録している方はこちら",new_user_session_path,class:"link-LogIn"
+      .info__terms
+        = link_to "利用規約","#",class:"link-terms"
+      .info__PrivacyPolicy
+        = link_to "プライバシーポリシー","#",class:"link-PrivacyPolicy"
+      .info__inquiry
+        = link_to "お問い合わせ", "#",class:"link-inquiry"
+  .main__copyright
+    ©︎2020 たすけあい
+
