@@ -1,5 +1,50 @@
 = render "homes/header"
-.Form
-  .Form__Images
-    画像の設定
-  .Form__
+.form
+  .form__box
+    = form_with model: @post, local: true  do |f|
+      .contents
+        .contents__heading
+          ここから募集しよう
+          .contents__heading__border
+        .contents__TagBox
+          .TagHeading
+            タグ(スペースを入力すると複数のタグを登録できます)
+          .TagForm
+            = f.text_field :tag_name, autofocus: true,placeholder: "例：野球　スポーツ　サッカー", class: "FormField__tag"
+        .contents__TitleBox
+          .title
+            タイトル
+            %span.required※必須
+          .TitleForm
+            = f.text_field :title, autofocus: true,placeholder: "例：ゴミ拾い募集中", class: "FormField__title"
+            .error__message
+              - if @post.errors.include?(:title)
+                = @post.errors.full_messages_for(:title).first
+        .contents__imageBox
+          .ImageHeading
+            イメージ
+            %span.required※必須
+          %div#previews
+            .preview
+              .preview__icon
+                = icon('fas', 'video')
+                .preview__text
+                  投稿するとサムネイルが表示されます
+          = f.file_field :image, class:"FormField-image",accept: "image/png, image/jpeg"
+          .error__message
+            - if @post.errors.include?(:image)
+              = @post.errors.full_messages_for(:image).first
+        .contents__ExplanationBox
+          .ExplanationHeading
+            募集内容
+            %span.required※必須
+          .ExplanationForm
+            = f.text_area :explanation,class:"ProductSide__form",rows:"7",placeholder: "募集内容（必須1,000文字以内）\n(募集地域、連絡方法、資格etc...）\n\n例）街を大掃除します！渋谷の街を綺麗にしましょう。\n11月1日朝６時〜　ハチ公前集合\n誰でも歓迎です！"
+            .ExplanationForm__LengthCount
+              0/1000
+            .error__message
+              - if @post.errors.include?(:explanation)
+                = @post.errors.full_messages_for(:explanation).first
+        .actions
+          = f.submit "新規募集", class: "SubmitBtn"
+        

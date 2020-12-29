@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   &__index{
-    border-bottom: 1px solid lightgray;
+    
     background-color: white;
     text-align: center;
     width: 70%;
@@ -24,10 +24,20 @@
           }
         }
       }
+
       &__title{
         font-size: 35px;
         font-weight: bold;
-        margin-bottom: 15px;
+      }
+      &__tags{
+        display: flex;
+        margin-bottom: 12px;
+        .tag{
+          margin-left: 15px;
+          padding: 5px 15px;
+          border: 1px solid red;
+          border-radius: 20px;
+        }
       }
       &__matter{
         &__recruitment{
@@ -37,12 +47,15 @@
         }
         &__user{
           display: flex;
-          margin-top: 20px;
+          margin: 20px 0 100px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid lightgray;
           .UserImage{
 
           }
           .UserName{
             margin-left: 20px;
+            
           }
         }
       }

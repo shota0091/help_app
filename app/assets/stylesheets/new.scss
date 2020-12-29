@@ -1,106 +1,125 @@
 @mixin form {
+  margin: 10px 0 15px;
   width: 100%;
-  height: 45px;
-  margin-top: 10px;
+  height: 40px;
 }
-.error__message{
-  font-size: 14px;
-  color:red;
-  margin-top: 10px;
+@mixin required {
+  font-size: 12px;
+  color: red;
 }
-.LogIn{
-  text-align: center;
-  background-color: white;
-  margin: 30px 160px 0;
-  @media(min-width: 1068px) {
-    margin: 50px 400px 0;
-  }
-  &__page{
-    border:1px solid red;
+.form{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  &__box{
+    margin: 23px 150px;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
     border-radius: 20px;
-    margin: 20px;
-    padding: 30px 0;
-    &__title{
-      font-size: 25px;
+    @media(min-width: 1068px) {
+      margin: 50px 400px 0;
     }
-    &__boder{
-      margin: 0 20px;
-      width: 90%;
-      height: 15px;
-      border: 0;
-      background: repeating-linear-gradient(-45deg,
-     #e60033 , #e60033 15px,
-     #fff 15px, #fff 30px, #f08300 30px, #f08300 45px,
-     #fff 45px, #fff 60px, #ffd900 60px, #ffd900 75px,
-     #fff 75px, #fff 90px, #3eb370 90px, #3eb370 105px,
-     #fff 105px, #fff 120px, #bce2e8 120px, #bce2e8 135px,
-     #fff 135px, #fff 150px, #0095d9 150px, #0095d9 165px,
-     #fff 165px, #fff 180px, #884898 180px, #884898 195px,
-     #fff 195px, #fff 210px);
-    }
-    .Form{
-      margin: 20px 0;
-      text-align: start;
-      padding:0 30px;
-      &__name{
-        &__title{
+    .contents{
+      margin: 20px;
+      @media(min-width: 1068px) {
+        margin: 50px;
+      }
+      &__heading{
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 25px;
+        @media(min-width: 1068px) {
+          font-size: 40px;
         }
-        &__InputForm{
-          width: 100%;
-          margin-bottom: 15px;
-          .FormField__name{
+        &__border{
+          margin: 0 20px;
+          width: 90%;
+          height: 15px;
+          border: 0;
+          background: repeating-linear-gradient(-45deg,
+         #e60033 , #e60033 15px,
+         #fff 15px, #fff 30px, #f08300 30px, #f08300 45px,
+         #fff 45px, #fff 60px, #ffd900 60px, #ffd900 75px,
+         #fff 75px, #fff 90px, #3eb370 90px, #3eb370 105px,
+         #fff 105px, #fff 120px, #bce2e8 120px, #bce2e8 135px,
+         #fff 135px, #fff 150px, #0095d9 150px, #0095d9 165px,
+         #fff 165px, #fff 180px, #884898 180px, #884898 195px,
+         #fff 195px, #fff 210px);
+        }
+      }
+      &__TagBox{
+        .TagHeading{
+        }
+        .TagForm{
+          .FormField__tag{
             @include form;
           }
         }
       }
-      &__age{
-        &__title{
+      &__TitleBox{
+        .title{
+          .required{
+            @include required;
+          }
         }
-        &__InputForm{
-          width: 100%;
-          margin-bottom: 15px;
-          .FormField__age{
+        .TitleForm{
+          .FormField__title{
             @include form;
           }
         }
       }
-      &__email{
-        &__title{
-
-        }
-        &__InputForm{
-          width: 100%;
-          margin-bottom: 15px;
-          .FormField__email{
-            @include form;
+      &__imageBox{
+        .ImageHeading{
+          .required{
+            @include required;
           }
         }
-      }
-      &__passwerd{
-        &__title{
-        }
-        &__InputForm{
+        .preview{
+          margin: 10px 0 15px;
           width: 100%;
-          margin-bottom: 15px;
-          .FormField__passwerd{
-            @include form;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          border-radius: 1em;
+          border:1px dashed lightslategray;
+          background-color:rgb(245, 245, 245);
+          cursor:pointer;
+          height: 200px;
+  
+        }
+        .FormField-image{
+          display: none;
+      }
+      }
+      &__ExplanationBox{
+        .ExplanationHeading{
+          .required{
+            @include required;
           }
         }
-      }
-      &__ReEnter{
-        &__title{
-        }
-        &__InputForm{
-          width: 100%;
-          margin-bottom: 15px;
-          .FormField__ReEnter{
-            @include form;
+        .ExplanationForm{
+          .ProductSide__form{
+            margin-top: 10px;
+            width: 100%;
+            @media(min-width: 1068px) {
+              height: 250px;
+            }
+          }
+          &__LengthCount{
+            font-size: 14px;
+            text-align: end;
+            color:lightgray;
           }
         }
       }
       .actions{
         .SubmitBtn{
-          margin-top: 15px;
+          margin: 15px 0;
+          height: 30px;
           width: 100%;
           background-color: skyblue;
           border: 1px solid transparent;
