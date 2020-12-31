@@ -6,5 +6,9 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end 
   resources :home ,only: :index
-  resources :posts 
+  resources :users
+  resources :posts do
+    resources :comments, only: :create
+  end
+    
 end

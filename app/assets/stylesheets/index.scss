@@ -28,6 +28,10 @@
       &__title{
         font-size: 35px;
         font-weight: bold;
+        .text{
+          text-decoration: none;
+          color:black;
+        }
       }
       &__tags{
         display: flex;
@@ -38,12 +42,26 @@
           border: 1px solid red;
           border-radius: 20px;
         }
+        .Address-icon{
+          margin-left: auto;
+          margin-top: auto;
+          color: red;
+        }
+        .Address{
+          margin-left: 5px;
+          margin-top: auto;
+          font-size: 12px;
+          color: lightgray;
+        }
       }
       &__matter{
         &__recruitment{
           text-align: start;
           font-size: 12px;
-          color:lightgray;
+          .explanation{
+            text-decoration: none;
+            color:lightgray;
+          }
         }
         &__user{
           display: flex;
@@ -51,11 +69,19 @@
           padding-bottom: 20px;
           border-bottom: 1px solid lightgray;
           .UserImage{
-
           }
           .UserName{
             margin-left: 20px;
-            
+            .name{
+              text-decoration: none;
+              color:black;
+            }
+          }
+          .TimeStamp{
+            margin-left: auto;
+            margin-top: auto;
+            font-size: 12px;
+            color:lightgray;
           }
         }
       }
