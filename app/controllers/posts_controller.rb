@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
-  
+  before_action :set_post,only: [:show, :destroy,:edit,:update]
   
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).order("created_at DESC")
   end
 
   def show
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -28,7 +30,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :explanation, :image, :license_id,:address_id,:obtain,tag_ids: []).merge(user_id: current_user.id)
   end
 
-  def set_product
+  def set_post
     @post = Post.find(params[:id])
   end
 end

@@ -1,41 +1,159 @@
 .details{
   height: 100%;
   display: flex;
+  background-color: lightgray;
   align-items: center;
-  margin: 20px 0;
   &__DetailsBox{
-    margin: 23px 150px;
+    padding: 0 40px;
+    margin: 23px 70px;
     background-color: white;
     width: 100%;
     height: 100%;
-    border: 1px solid red;
-    border-radius: 20px;
     @media(min-width: 1068px) {
-      margin: 50px 400px 0;
+      margin: 50px 300px 0;
     }
     .TitleBox{
-
-    }
-    .ImageBox{
-
-    }
-    .userBox{
-
+      &__title{
+        text-align: center;
+        margin: 30px 0;
+        font-size:30px;
+        font-weight: bold;
+      }
     }
     .TagBox{
-
+      &__RegistrationTag{
+        display: flex;
+        align-items: center;
+        .title{
+          background:#0099FF;
+          text-align:center;
+          color:#FFFFFF;
+          font-weight:bold;
+          border-radius: 5px;
+        }
+      
+        &__tags{
+          margin-left: 15px;
+          padding: 5px 15px;
+          border: 1px solid red;
+          border-radius: 20px;
+        }
+      }
     }
-    .address{
-
+    .ImageBox{
+      margin: 15px 0;
+      &__image{
+        text-align: center;
+        .details-Image{
+          width: 90%;
+          height: 300px;
+        }
+      }
     }
     .ExplanationBox{
-
+      &__contents{
+        display: flex;
+        .title{
+          border-bottom:1px solid red;
+        }
+        
+        .Address-icon{
+          margin-left: auto;
+          color:red;
+        }
+        .Address{
+          margin-left: 5px;
+          margin-top: auto;
+          font-size: 12px;
+          color:lightgray;
+        }
+      }
     }
-    .LicenseBox{
-
+    .contents{
+      margin: 20px 0;
+      border: 1px solid #dedede;
+      .UserBox{
+        display: flex;
+        &__Contributor{
+          border-right: 1px solid #dedede;
+          width: 30%;
+          background-color: #eee;
+          }
+          &__matter{
+            .user-link{
+              text-decoration: none;
+              color: black;
+            }
+          }
+        }
+        .LicenseBox{
+          border-top: 1px solid #dedede;
+          
+          display: flex;
+          &__title{
+            width: 30%;
+            background-color: #eee;
+          }
+          &__matter{
+            border-left: 1px solid #dedede;
+          }
+        }
+        .ObtainBox{
+          display: flex;
+          border-top: 1px solid #dedede;
+          &__title{
+            width: 30%;
+            background-color: #eee;
+          }
+          &__matter{
+            border-left: 1px solid #dedede;
+          }
+      }
     }
-    .ObtainBox{
-      
+    .CommentForm{
+      .Comment-form{
+        height: 100px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .Comment-Send{
+        width: 100%;
+        margin-top: 15px;
+        height: 40px;
+        background-color:skyblue;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+      }
+    }
+    .CommentWarning{
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .CommentSide{
+      margin: 50px 0 20px;
+      &__contents{
+        text-align: center;
+        font-size: 20px;
+      }
+      &__comments{
+        
+        font-size: 20px;
+        .user {
+          color:black;
+        }
+        .LinkUser{
+          text-decoration: none;
+          color:skyblue;
+        }
+      }
+      &__times{
+        text-align: end;
+        font-size: 12px;
+        color:lightgray;
+      }
     }
   }
 }

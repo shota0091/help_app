@@ -5,9 +5,14 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :user
-  has_many :comments
+  has_many :comments,dependent: :destroy
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  # 配達の負担
+  belongs_to_active_hash :address
+  belongs_to_active_hash :license
 
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?

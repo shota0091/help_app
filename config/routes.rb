@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   end 
   resources :home ,only: :index
   resources :users
-  resources :posts 
+  resources :posts do
+    resources :comments, only: :create
+  end
+    
 end

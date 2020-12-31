@@ -1,11 +1,59 @@
 .details
   .details__DetailsBox
     .TitleBox
-      = @posts.title
-    .ImageBox
-    .userBox
+      .TitleBox__title
+        = @post.title
     .TagBox
-    .address
+      .TagBox__RegistrationTag
+        .title
+          登録タグ
+        - @post.tags.each do |post|
+          .TagBox__RegistrationTag__tags
+            =post.tag_name
+    .ImageBox
+      .ImageBox__image
+        = image_tag @post.image.url, class:"details-Image"
     .ExplanationBox
-    .LicenseBox
-    .ObtainBox
+      .ExplanationBox__contents
+        .title
+          募集内容
+        .Address-icon
+          = icon("fa","map-marker-alt")
+        .Address
+          = @post.address.name
+      .ExplanationBox__matter
+        = @post.explanation
+    .contents
+      .UserBox
+        .UserBox__Contributor
+          投稿者
+        .UserBox__matter
+          = link_to @post.user.name,user_path(@post.user.id),class: "user-link"
+      .LicenseBox
+        .LicenseBox__title
+          必要資格、経験
+        .LicenseBox__matter
+          = @post.license.name
+      .ObtainBox
+        .ObtainBox__title
+          手伝って得られるもの
+          %br 提供できるもの
+        .ObtainBox__matter
+          = @post.obtain
+    .CommentForm
+      = form_with(model: [@post,@comment], local: true, id: "new_comment") do |f|
+        = f.text_area :text,class: "Comment-form",placeholder: "コメントする", rows: "2"
+        = f.submit "SEND",class: "Comment-Send"
+    .CommentWarning
+      相手のことを考え丁寧なコメントを心がけましょう。
+      %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .CommentSide
+      .CommentSide__contents
+        <コメント一覧>
+      - @comments.each do |c|
+        .CommentSide__comments
+          = link_to c.user.name,"/users/#{c.user_id}", class: "LinkUser"
+          %span.user 
+            = ": #{c.text}"
+          .CommentSide__times
+            = c.created_at.strftime('%Y/%m/%d %H:%M:%S')
