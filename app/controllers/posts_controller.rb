@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
+  
+  
   def index
-    @tag_list = Tag.all 
     @posts = Post.all
+  end
+
+  def show
   end
 
   def new
@@ -22,5 +26,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :explanation, :image, :license_id,:address_id,:obtain,tag_ids: []).merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @post = Post.find(params[:id])
   end
 end
