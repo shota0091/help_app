@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 2020_12_29_102914) do
     t.string "title", null: false
     t.string "explanation", null: false
     t.string "image", null: false
+    t.string "obtain", null: false
+    t.integer "address_id", null: false
+    t.integer "license_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

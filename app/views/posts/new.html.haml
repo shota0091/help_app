@@ -1,4 +1,3 @@
-= render "homes/header"
 .form
   .form__box
     = form_with model: @post, local: true  do |f|
@@ -34,12 +33,30 @@
           .error__message
             - if @post.errors.include?(:image)
               = @post.errors.full_messages_for(:image).first
+        .contents__LicenseBox
+          .LicenseHeading
+            経験・資格
+            %span.required※必須
+          .LicensForm
+            = f.collection_select :license_id,License.all, :id, :name,{prompt:"選択してください"},class:"FormField-license"
+        .contents__AdressBox
+          .AdressHeading
+            募集地域
+            %span.required※必須
+          .AdressForm
+            = f.collection_select :address_id,Address.all, :id, :name,{prompt:"選択してください"},class:"FormField-adress"
+        .contents__ObtaineBox
+          .ObtainHeading
+            手伝って得られるもの、提供できるもの
+            %span.required※必須
+          .ObtainForm
+            = f.text_area :obtain,class:"FormField-obtaine",rows:"4",placeholder: "手伝っていただいた方に提供できる、得られるものを記述しましょう",class:"FormField-obtaine"
         .contents__ExplanationBox
           .ExplanationHeading
             募集内容
             %span.required※必須
           .ExplanationForm
-            = f.text_area :explanation,class:"ProductSide__form",rows:"7",placeholder: "募集内容（必須1,000文字以内）\n(募集地域、連絡方法、資格etc...）\n\n例）街を大掃除します！渋谷の街を綺麗にしましょう。\n11月1日朝６時〜　ハチ公前集合\n誰でも歓迎です！"
+            = f.text_area :explanation,class:"FormField-Explanation",rows:"7",placeholder: "募集内容（必須1,000文字以内）\n(募集地域、連絡方法、資格etc...）\n\n例）街を大掃除します！渋谷の街を綺麗にしましょう。\n11月1日朝６時〜　ハチ公前集合\n誰でも歓迎です！"
             .ExplanationForm__LengthCount
               0/1000
             .error__message
@@ -47,4 +64,3 @@
                 = @post.errors.full_messages_for(:explanation).first
         .actions
           = f.submit "新規募集", class: "SubmitBtn"
-        
