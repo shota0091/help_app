@@ -7,6 +7,13 @@
   font-size: 12px;
   color: red;
 }
+@mixin textarea {
+  margin-top: 10px;
+  width: 100%;
+  @media(min-width: 1068px) {
+    height: 250px;
+  }
+}
 .form{
   height: 100%;
   display: flex;
@@ -95,6 +102,42 @@
           display: none;
       }
       }
+      &__LicenseBox{
+        .LicenseHeading{
+          .required{
+            @include required
+          }
+        }
+        .LicensForm{
+          .FormField-license{
+            @include form
+          }
+        }
+      }
+      &__AdressBox{
+        .AdressHeading{
+          .required{
+            @include required;
+          }
+        }
+        .AdressForm{
+          .FormField-adress{
+            @include form;
+          }
+        }
+      }
+      &__ObtaineBox{
+        .ObtainHeading{
+          .required{
+            @include required;
+          }
+        }
+        .ObtainForm{
+          .FormField-obtaine{
+            @include textarea;
+          }
+        }
+      }
       &__ExplanationBox{
         .ExplanationHeading{
           .required{
@@ -102,12 +145,8 @@
           }
         }
         .ExplanationForm{
-          .ProductSide__form{
-            margin-top: 10px;
-            width: 100%;
-            @media(min-width: 1068px) {
-              height: 250px;
-            }
+          .FormField-Explanation{
+            @include textarea;
           }
           &__LengthCount{
             font-size: 14px;
