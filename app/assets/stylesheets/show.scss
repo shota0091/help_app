@@ -141,6 +141,10 @@
       &__comments{
         text-align: start;
         font-size: 20px;
+        border: 1px solid #eee;
+        margin: 20px 0;
+        padding: 10px;
+        border-radius: 10px;
         .user {
           color:black;
         }
