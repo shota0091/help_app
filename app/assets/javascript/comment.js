@@ -1,17 +1,19 @@
 $(function(){
   function buildHTML(comment){
-    let html = `<div class="CommentSide__comments">
-                  <a class="LinkUser" href=${comment.user_id}>${comment.user_name}</a>
-                    <span class="user">
-                      : ${comment.text}
-                    </span>
-                  <div class="CommentSide__times">
-                    ${comment.created_at}
-                   </div>
+    let html = `<div class="CommentSide__comments" id=comments_${comment.id}>
+                    <a class="LinkUser" href=${comment.user_id}>${comment.user_name}</a>
+                      <span class="user">
+                        : ${comment.text}
+                      </span>
+                      <div class="delet">
+                        <a class="DeleteBtn" rel="nofollow" data-method="delete" href=/posts/${comment.post_id}/comments/${comment.id} data-remote="true" ><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    <div class="CommentSide__times">
+                      ${comment.created_at}
+                     </div>
                 </div>`
     return html;
   };
-
 
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
@@ -28,13 +30,13 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.CommentSide__comments').prepend(html)
+      $('.content').prepend(html)
       $('.Comment-form').val('');
-      $('.form__submit').prop('disabled', false);
+      $('.Comment-Send').prop('disabled', false);
     })
     .fail(function(){
       alert("メッセージ送信失敗しました");
-      $('.form__submit').prop('disabled', false);
+      $('.Comment-Send').prop('disabled', false);
     })
   });
 });

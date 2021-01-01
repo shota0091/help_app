@@ -1,0 +1,10 @@
+- @comments.each do |c|
+  .CommentSide__comments{id: "comments_#{c.id}"}
+    = link_to c.user.name,"/users/#{c.user_id}", class: "LinkUser"
+    %span.user 
+      = ": #{c.text}"
+    -if c.user == current_user
+      .delet
+        = link_to icon('fas', 'trash-alt'), post_comment_path(@post.id, c.id),method: :delete,remote: true,data: { confirm: '削除してよろしいですか？' },class:"DeleteBtn"
+    .CommentSide__times
+      = c.created_at.strftime('%Y/%m/%d %H:%M:%S')
