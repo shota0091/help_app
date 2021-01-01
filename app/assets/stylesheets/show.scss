@@ -139,7 +139,7 @@
         font-size: 20px;
       }
       &__comments{
-        
+        text-align: start;
         font-size: 20px;
         .user {
           color:black;
@@ -147,6 +147,14 @@
         .LinkUser{
           text-decoration: none;
           color:skyblue;
+        }
+      }
+      .delet{
+        text-align: end;
+        font-size: 15px;
+        .DeleteBtn{
+          text-decoration: none;
+          color: black;
         }
       }
       &__times{
