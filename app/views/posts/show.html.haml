@@ -40,6 +40,11 @@
           %br 提供できるもの
         .ObtainBox__matter
           = @post.obtain
+    - if user_signed_in? && current_user.id == @post.user_id
+      .CommentEdit
+        = link_to  edit_post_path(@post),class:"EditBtn" do
+          = icon('fa','edit')
+          編集する
     .CommentForm
       = form_with(model: [@post,@comment], local: true, id: "new_comment") do |f|
         = f.text_area :text,class: "Comment-form",placeholder: "コメントする", rows: "2"
