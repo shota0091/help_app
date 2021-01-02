@@ -70,7 +70,7 @@
       }
     }
     .contents{
-      margin: 20px 0;
+      margin-top: 20px;
       border: 1px solid #dedede;
       .UserBox{
         display: flex;
@@ -108,6 +108,13 @@
           &__matter{
             border-left: 1px solid #dedede;
           }
+      }
+    }
+    .CommentEdit{
+      text-align: end;
+      margin-bottom: 30px;
+      .EditBtn{
+        text-decoration: none;
       }
     }
     .CommentForm{

@@ -1,0 +1,54 @@
+.form
+  .form__box
+    = form_with model: @post, local: true  do |f|
+      .contents
+        .contents__thumbnail
+          = image_tag @post.image_url, class:"thumbnail"
+        .contents__heading
+          の募集内容を変更
+          .contents__heading__border
+        .contents__TagBox
+          .TagHeading
+            タグ(半角スペースを入力すると複数のタグを登録できます)
+          .TagForm
+            = f.text_field :tag_name, autofocus: true,value: @tag_lists, placeholder: "例：野球　スポーツ　サッカー", class: "FormField__tag"
+        .contents__TitleBox
+          .title
+            タイトル
+            %span.required※必須
+          .TitleForm
+            = f.text_field :title, autofocus: true,placeholder: "例：ゴミ拾い募集中", class: "FormField__title"
+            .error__message
+              - if @post.errors.include?(:title)
+                = @post.errors.full_messages_for(:title).first
+        .contents__LicenseBox
+          .LicenseHeading
+            経験・資格
+            %span.required※必須
+          .LicensForm
+            = f.collection_select :license_id,License.all, :id, :name,{prompt:"選択してください"},class:"FormField-license"
+        .contents__AdressBox
+          .AdressHeading
+            募集地域
+            %span.required※必須
+          .AdressForm
+            = f.collection_select :address_id,Address.all, :id, :name,{prompt:"選択してください"},class:"FormField-adress"
+        .contents__ObtaineBox
+          .ObtainHeading
+            手伝って得られるもの、提供できるもの
+            %span.required※必須
+          .ObtainForm
+            = f.text_area :obtain,class:"FormField-obtaine",rows:"4",placeholder: "手伝っていただいた方に提供できる、得られるものを記述しましょう",class:"FormField-obtaine"
+        .contents__ExplanationBox
+          .ExplanationHeading
+            募集内容
+            %span.required※必須
+          .ExplanationForm
+            = f.text_area :explanation,class:"FormField-Explanation",rows:"7",placeholder: "募集内容（必須1,000文字以内）\n(募集地域、連絡方法、資格etc...）\n\n例）街を大掃除します！渋谷の街を綺麗にしましょう。\n11月1日朝６時〜　ハチ公前集合\n誰でも歓迎です！"
+            .ExplanationForm__LengthCount
+              0/1000
+            .error__message
+              - if @post.errors.include?(:explanation)
+                = @post.errors.full_messages_for(:explanation).first
+        .actions
+          = f.submit "編集する", class: "SubmitBtn"

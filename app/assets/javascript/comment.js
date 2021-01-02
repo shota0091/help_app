@@ -6,7 +6,7 @@ $(function(){
                         : ${comment.text}
                       </span>
                       <div class="delet">
-                        <a class="DeleteBtn" rel="nofollow" data-method="delete" href=/posts/${comment.post_id}/comments/${comment.id} data-remote="true" ><i class="fas fa-trash-alt"></i></a>
+                        <a class="DeleteBtn" rel="nofollow" data-method="delete" href=/posts/${comment.post_id}/comments/${comment.id} data-remote="true" data-confirm="削除してよろしいですか？"><i class="fas fa-trash-alt"></i></a>
                       </div>
                     <div class="CommentSide__times">
                       ${comment.created_at}
