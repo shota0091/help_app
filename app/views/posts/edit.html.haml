@@ -52,3 +52,7 @@
                 = @post.errors.full_messages_for(:explanation).first
         .actions
           = f.submit "編集する", class: "SubmitBtn"
+        .delete
+          = link_to post_path(@post.id), method: :DELETE,class:"DeleteBtn" do
+            = icon('fas', 'trash-alt')
+            募集内容を削除

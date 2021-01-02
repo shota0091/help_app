@@ -44,7 +44,11 @@
       .CommentEdit
         = link_to  edit_post_path(@post),class:"EditBtn" do
           = icon('fa','edit')
-          編集する
+          募集内容を編集
+      .CommentDelete
+        = link_to post_path(@post.id), method: :DELETE,class:"DeleteBtn" do
+          = icon('fas', 'trash-alt')
+          募集内容を削除
     .CommentForm
       = form_with(model: [@post,@comment], local: true, id: "new_comment") do |f|
         = f.text_area :text,class: "Comment-form",placeholder: "コメントする", rows: "2"

@@ -29,6 +29,11 @@ class PostsController < ApplicationController
     @tag_lists = @post.tags.pluck(:tag_name).join(' ')
   end
 
+  def destroy
+    @post.destroy
+    redirect_to posts_path
+  end
+
   def update
     tag_list = params[:post][:tag_name].split(nil)
     if @post.update_attributes(post_params)

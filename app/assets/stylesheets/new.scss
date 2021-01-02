@@ -170,6 +170,18 @@
           color:white;
         }
       }
+      .delete{
+        .DeleteBtn{
+          color: white;
+          text-decoration: none;
+          padding: 6px 155px;
+          background-color: lightgray;
+          border: 1px solid white;
+          @media(min-width: 1068px) {
+            padding: 6px 202px;
+          }
+        }
+      }
     }
   }
 }
