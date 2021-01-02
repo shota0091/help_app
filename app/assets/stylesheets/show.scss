@@ -112,13 +112,19 @@
     }
     .CommentEdit{
       text-align: end;
-      margin-bottom: 30px;
       .EditBtn{
+        text-decoration: none;
+      }
+    }
+    .CommentDelete{
+      text-align: end;
+      .DeleteBtn{
         text-decoration: none;
       }
     }
     .CommentForm{
       .Comment-form{
+        margin-top: 20px;
         height: 100px;
         width: 100%;
         box-sizing: border-box;
