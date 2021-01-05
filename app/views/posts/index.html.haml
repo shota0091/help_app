@@ -25,4 +25,6 @@
               = link_to i.user.name,user_path(i.user.id),class:"name"
             .TimeStamp
               = "投稿日:#{i.created_at.strftime('%Y/%m/%d')}"
-            
+    .pages
+      .pages__box
+        = paginate @posts

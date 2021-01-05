@@ -7,6 +7,13 @@ ja:
         title: "タイトル"
         image: "画像"
         tag_name: "タグ"
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
