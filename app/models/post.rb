@@ -10,7 +10,6 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tags
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  # 配達の負担
   belongs_to_active_hash :address
   belongs_to_active_hash :license
 
