@@ -5,17 +5,17 @@ class HomesController < ApplicationController
     end
   end
 
-    def terms
+    def new
       @home = Home.new
     end
 
     def create
-      @home = Home.new(terms_params)
+      @home = Home.new(home_params)
       if @home.save
-        ContactMailer.contact_mail(@contact).deliver
-        redirect_to terms_apth
+        HomeMailer.home_mail(@home).deliver
+        redirect_to root_path
       else
-        render terms_apth
+        render :new
       end
     end
 
@@ -27,8 +27,8 @@ class HomesController < ApplicationController
 
     private
 
-    def terms_params
-      params.require(:terms).permit(:name, :text)
+    def home_params
+      params.require(:home).permit(:name, :text)
     end
   
 end
