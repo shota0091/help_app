@@ -1,0 +1,49 @@
+@mixin title {
+  margin-top: 10px;
+  margin-left: 25px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+@mixin text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.inquiry{
+  &__InquiryBox{
+    background-color: lightgray;
+    margin: 30px;
+    padding: 20px;
+    .title{
+      @include title;
+      &__text{
+        @include text;
+      }
+    }
+    .frist{
+      @include title;
+      &__text{
+        @include text;
+      }
+    }
+    .second{
+      @include title;
+      &__text{
+        @include text;
+      }
+    }
+    .third{
+      @include title;
+      &__text{
+        @include text;
+      }
+    }
+    .forth{
+      @include title;
+      &__text{
+        @include text;
+      }
+    }
+  }
+}

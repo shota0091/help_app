@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end 
-  resources :home ,only: :index
+  resources :homes ,only: [:new,:index,:create] do
+    collection do
+      get 'inquiry'
+      get 'policy'
+    end
+  end
   resources :users
   resources :tags, only: :show
   resources :posts do
