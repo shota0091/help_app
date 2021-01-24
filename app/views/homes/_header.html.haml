@@ -10,7 +10,7 @@
         %li.menu__LogIn
           = link_to "新規投稿",new_post_path ,class:"LogIn-btn"
         %li.menu__registration
-          = link_to "マイページ",new_user_registration_path,class:"registration-btn"
+          = link_to "マイページ",user_path(current_user.id),class:"registration-btn"
         %li.menu__GuestLogIn
           = link_to "ログアウト",destroy_user_session_path, method: :delete,class:"GuestLogIn-btn"
       - else
