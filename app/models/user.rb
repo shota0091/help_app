@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments,dependent: :destroy
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :address
+
 
   def self.guest
     find_or_create_by!(name: 'ゲスト',email: 'guest@example.com',age: 20) do |user|

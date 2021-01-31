@@ -2,14 +2,22 @@
   .UserPage__ProfileBox
     .IntroductionSide
       .UserImage
+        = @user.image
       .UserName
+        = @user.name
       .UserAge
+        = @user.age
       .UserArea
+        = @user.address
       .UserIntroduction
+        = @user.introduction
       .UserFollow
+        = icon("fa","heart")
       .UserEvaluate
       .UserEdit
+        = icon('fas','edit')
     .PostSide
       .PostImage
       .PostDay
       .postIntroduction
+
