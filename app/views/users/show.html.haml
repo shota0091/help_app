@@ -2,15 +2,14 @@
   .UserPage__ProfileBox
     .IntroductionSide
       .UserImage
-        = @user.image
+        = image_tag @user.image.url
       .UserName
         = @user.name
       .UserAge
         = @user.age
       .UserArea
-        = @user.address
+        = @user.address.name
       .UserIntroduction
-        = @user.introduction
       .UserFollow
         = icon("fa","heart")
       .UserEvaluate
