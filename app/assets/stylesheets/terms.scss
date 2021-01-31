@@ -1,0 +1,21 @@
+.terms{
+  &__box{
+    margin: 23px 70px;
+    border: 1px solid black;
+    border-radius: 10px;
+    @media(min-width: 1068px) {
+      margin: 50px 300px 20px;
+    }
+
+    .Form{
+      margin: 20px 0 ; 
+      text-align: center;
+      &__top{
+        font-size: 25px;
+      }
+      &__twitter{
+        margin-top: 10px;
+      }
+    }
+  }
+}

@@ -6,17 +6,6 @@ class HomesController < ApplicationController
   end
 
     def new
-      @home = Home.new
-    end
-
-    def create
-      @home = Home.new(home_params)
-      if @home.save
-        HomeMailer.home_mail(@home).deliver
-        redirect_to root_path
-      else
-        redirect_to root_path
-      end
     end
 
     def inquiry
@@ -24,11 +13,4 @@ class HomesController < ApplicationController
 
     def PrivacyPolicy
     end
-
-    private
-
-    def home_params
-      params.require(:home).permit(:name, :text)
-    end
-  
 end

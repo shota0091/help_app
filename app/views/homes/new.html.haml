@@ -1,20 +1,11 @@
 .terms
   .terms__box
-    .terms__box__info
-      お問い合わせフォーム
-      .MessageForm
-        .Form
-          = form_with(model: @home,local: true) do |f|
-            .Form__name
-              .Form__name__title
-                お名前※
-              .Form__email__InputForm
-                = f.text_field :name, class: "FormField__email"
-            .Form__inquiry
-              .Form__inquiry__title
-                お問い合わせ内容※
-              .Form__inquiry__InputForm
-                = f.text_area :text, class: "FormField__email"
-              .actions
-                = f.submit "送信", class: "SubmitBtn"
-              
+    .Form
+      .Form__top
+        お問い合わせは以下からお願いします
+      .Form__twitter
+        = link_to "https://twitter.com/inoponA" do
+          = icon('fab', 'twitter')
+          Twitter
+      .Form__mail
+        メールアドレス：shengtaikunei@gmail.com
