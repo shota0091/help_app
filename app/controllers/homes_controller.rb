@@ -13,4 +13,12 @@ class HomesController < ApplicationController
 
     def PrivacyPolicy
     end
+<<<<<<< Updated upstream
+=======
+  
+
+
+    
+
+>>>>>>> Stashed changes
 end
