@@ -20,7 +20,7 @@
             = link_to i.explanation,post_path(i),class:"explanation"
           .contents__matter__user
             .UserImage
-              aaaa
+              = image_tag i.user.image.url,class:"image"
             .UserName
               = link_to i.user.name,user_path(i.user.id),class:"name"
             .TimeStamp

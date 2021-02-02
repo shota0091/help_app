@@ -1,7 +1,10 @@
 @mixin list {
   margin-left: 15px;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
+  @media(min-width: 1068px) {
+    font-size: 19px;
+  }
 }
 
 @mixin btn {
