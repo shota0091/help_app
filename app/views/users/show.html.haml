@@ -1,8 +1,10 @@
 .UserPage
+  .UserPage__title
+    user page
   .UserPage__ProfileBox
     .IntroductionSide
       .UserImage
-        = image_tag @user.image.url
+        = image_tag @user.image.url,class:"user-image"
       .UserName
         = "名前：#{@user.name}"
       .UserAge
@@ -17,7 +19,13 @@
         - if @user.id == current_user.id
           = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
     .PostSide
-      .PostImage
-      .PostDay
-      .postIntroduction
-
+      = "#{@user.name}さんの募集一覧"
+      - @posts.each do |i|
+        .PostImage
+          = link_to post_path(i.id) do
+            = image_tag i.image.url, class:"post-image"
+          .PostImage__introduction
+            = link_to post_path(i.id) do
+              = i.explanation
+        .PostDay
+          = i.created_at.strftime('%Y/%m/%d')
