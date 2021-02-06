@@ -21,6 +21,24 @@
           border-radius: 50%;
         }
       }
+      .UserName{
+        margin-top: 10px;
+      }
+      .UserEvaluate{
+        .EvaluateBtn{
+          margin-top: 10px;
+          background-color: skyblue;
+          border: 1px solid transparent;
+          border-radius: 10px;
+          color:white;
+        }
+      }
+      .UserEdit{
+        margin-top: 10px;
+        .EditBtn{
+          text-decoration: none;
+        }
+      }
     }
     .PostSide{
       margin-right: 20px;
