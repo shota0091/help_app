@@ -1,12 +1,10 @@
 class EvaluatesController < ApplicationController
-  def new
-    @evaluate = Evaluate.new
-  end
-  
+
+
   def create
-    @evaluate = Evaluate.new(evaluates_params)
+    @evaluate = Evaluate.create(evaluates_params)
     if @evaluate.save
-      redirect_to "/"
+      redirect_to root_path
     else
       render :show
     end
@@ -14,6 +12,6 @@ class EvaluatesController < ApplicationController
 
   private
   def evaluates_params
-    params.require(:evaluate).permit(:speedy, :kindness, :frantically).merge(user_id: current_user.id)
+    params.permit(:speedy, :kindness, :frantically).merge(user_id: current_user.id)
   end
 end
