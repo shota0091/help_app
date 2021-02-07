@@ -1,4 +1,5 @@
 @mixin list {
+  margin-left: 15px;
   font-size: 14px;
   font-weight: bold;
   @media(min-width: 1068px) {
