@@ -15,6 +15,8 @@
       .UserEvaluate
         %button.EvaluateBtn
           = "#{@user.name}さんを評価する"
+        .EvaluateBtnList
+          = render "evaluate"
       .UserEdit
         - if @user.id == current_user.id
           = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"

@@ -1,0 +1,50 @@
+.EvaluateSide
+  .EvaluateSide__EvaluateBox
+    = form_with model: @evaluate, local: true  do |f|
+      .close
+        = icon('fas','times')
+      .UserEvaluate
+        = "#{@user.name}さんを評価しよう"
+        .UserEvaluate__UserKindness
+          = "#{@user.name}さんをは親切でしたか？"
+          .UserEvaluate__UserKindness__EvaluateGood
+            = f.radio_button :kindness, "1",id: "kaidness-good" ,class: "UserKindnessEvaluate"
+            .good
+              = f.label "親切" ,for:"kaidness-good"
+          .UserEvaluate__UserKindness__EvaluateUsually
+            = f.radio_button :kindness, "2",id: "kaidness-usually" ,class: "UserKindnessEvaluate"
+            .Usually
+              = f.label "普通" ,for:"kaidness-usually"
+          .UserEvaluate__UserKindness__EvaluateBad
+            = f.radio_button :kindness, "3",id: "kaidness-bad" ,class: "UserKindnessEvaluate"
+            .bad
+              = f.label "不親切" ,for:"kaidness-bad"
+        .UserEvaluate__UserSpeedy
+          = "#{@user.name}さんをは迅速でしたか？"
+          .UserEvaluate__UserSpeedy__evaluate
+            %button
+              とても迅速だった
+            %button
+              迅速だった
+            %button
+              普通
+            %button
+              いまいち
+            %button
+              とても悪かった
+        .UserEvaluate__OneMoreTime
+          = "#{@user.name}さんにもう一度お願いしたいですか？"
+          .UserEvaluate__OneMoreTime__evaluate
+            %button
+              必ずお願いしたい
+            %button
+              ぜひお願いしたい
+            %button
+              機会があればお願いしたい
+            %button
+              縁があればお願いしたい
+            %button
+              これっきりで・・・
+        .UserEvaluate__SendBox
+          %button
+            = "#{@user.name}さんを評価する"
