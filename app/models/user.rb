@@ -7,10 +7,11 @@ class User < ApplicationRecord
   validates :name, presence: { message: 'を入力してください' }
   validates :age, numericality: { greater_than_or_equal_to:18 ,message: "は18歳以上を入力してください"}
 
+  has_many  :evaluate
+
   has_many :posts, dependent: :destroy
   has_many :comments,dependent: :destroy
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :address
+  mount_uploader :image, ImageUploader
 
 
   def self.guest

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
       get 'policy'
     end
   end
-  resources :users
+  resources :users 
+  resources :evaluates, only: [:create,:new]
   resources :tags, only: :show
   resources :posts do
     resources :comments, only: [:create,:destroy]

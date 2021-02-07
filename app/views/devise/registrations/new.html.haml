@@ -45,6 +45,8 @@
             .error__message
               - if @user.errors.include?(:password)
                 = @user.errors.full_messages_for(:password).first
+
+            = f.collection_select :address_id,Address.all, :id, :name,{prompt:"選択してください"},class:"FormField-adress"
         .actions
           = f.submit "Sign up", class: "SubmitBtn"
     .MemberRegister__page__SignIn
