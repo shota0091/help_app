@@ -28,5 +28,29 @@
     &__UserKindness{
       margin-top: 10px;
     }
+    &__UserSpeedy{
+      margin-top: 10px;
+    }
+    &__frantically{
+      margin-top: 10px;
+    }
   }
+}
+
+//フォームのcss
+
+@mixin content {
+  margin-right: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  
+}
+
+.form{
+  justify-content: center;
+  &__KindnessGood,&__KindnessUsually,&__KindnessBad,&__SpeedyGood,&__SpeedyUsually,&__SpeedyBad,&__franticallyGood,&__FranticallyUsually,&__FranticallyBad{
+    @include content;
+  }
+
 }
