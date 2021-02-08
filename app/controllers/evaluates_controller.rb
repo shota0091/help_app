@@ -12,6 +12,6 @@ class EvaluatesController < ApplicationController
 
   private
   def evaluates_params
-    params.permit(:speedy, :kindness, :frantically).merge(user_id: current_user.id)
+    params.require(:evaluate).permit(:speedy, :kindness, :frantically).merge(user_id: current_user.id)
   end
 end
