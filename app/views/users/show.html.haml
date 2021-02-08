@@ -12,64 +12,21 @@
       .UserIntroduction
         = "紹介文:#{@user.explanation}"
       .userAddress
-      .UserEvaluate
-        %button.EvaluateBtn
-          = "#{@user.name}さんを評価する"
-          .EvaluateBtnList
-      .EvaluateSide
-        .EvaluateSide__EvaluateBox
-          = form_with model: @evaluate, local: true do |f|
-            .close
-              = icon('fas','times')
-            .UserEvaluate
-              = "#{@user.name}さんを評価しよう"
-              .UserEvaluate__UserKindness
-                = "#{@user.name}さんをは親切でしたか？"
-                .form
-                  .form__KindnessGood
-                    = f.radio_button :kindness, "1",id: "kaidness-good" ,class: "UserKindnessEvaluate"
-                    .form__KindnessGood__good
-                      = f.label "親切" ,for:"kaidness-good"
-                  .form__KindnessUsually
-                    = f.radio_button :kindness, "2",id: "kaidness-usually" ,class: "UserKindnessEvaluate"
-                    .form__KindnessUsually__Usually
-                      = f.label "普通" ,for:"kaidness-usually"
-                  .form__KindnessBad
-                    = f.radio_button :kindness, "3",id: "kaidness-bad" ,class: "UserKindnessEvaluate"
-                    .form__KindnessBad__bad
-                      = f.label "不親切" ,for:"kaidness-bad"
-              .UserEvaluate__UserSpeedy
-                = "#{@user.name}さんをは迅速な対応でしたか？"
-                .form
-                  .form__SpeedyGood
-                    = f.radio_button :speedy, "1",id: "speedy-good" ,class: "UserKindnessEvaluate"
-                    .form__SpeedyGood__good
-                      = f.label "迅速" ,for:"speedy-good"
-                  .form__SpeedyUsually
-                    = f.radio_button :speedy, "2",id: "speedy-usually" ,class: "UserKindnessEvaluate"
-                    .form__SpeedyUsually__Usually
-                      = f.label "普通" ,for:"speedy-usually"
-                  .form__SpeedyBad
-                    = f.radio_button :speedy, "3",id: "speedy-bad" ,class: "UserKindnessEvaluate"
-                    .form__SpeedyBad__bad
-                      = f.label "遅い" ,for:"speedy-bad"
-              .UserEvaluate__frantically
-                = "#{@user.name}さんにもう一度お願いしたいですか？"       
-                .form
-                  .form__franticallyGood
-                    = f.radio_button :frantically, "1",id: "frantically-good" ,class: "UserKindnessEvaluate"
-                    .form__FranticallyGood__good
-                      = f.label "頼みたい" ,for:"frantically-good"
-                  .form__FranticallyUsually
-                    = f.radio_button :frantically, "2",id: "frantically-usually" ,class: "UserKindnessEvaluate"
-                    .form__FranticallyUsually__Usually
-                      = f.label "普通" ,for:"frantically-usually"
-                  .form__FranticallyBad
-                    = f.radio_button :frantically, "3",id: "frantically-bad" ,class: "UserKindnessEvaluate"
-                    .form__FranticallyBad__bad
-                      = f.label "これっきり" ,for:"frantically-bad"
-              .UserEvaluate__SendBox
-                = f.submit "#{@user.name}さんを評価する"
+      - if @user.id != current_user.id
+        .UserEvaluate
+          %button.EvaluateBtn
+            = "#{@user.name}さんを評価する"
+      = render "evaluate"
+      .UserStatus
+        他のユーザーの評価（平均点）
+        .UserStatus__Kindness
+          = "親切度 : #{@kindness}"
+        .UserStatus__speedy
+          = "迅速さ : #{@speedy}"
+        .UserStatus__frantically
+          = "repeat : #{@frantically}"
+        .UserStatus__comprehensive
+          = "総合力 : #{@comprehensive}"
       .UserEdit
         - if @user.id == current_user.id
           = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"

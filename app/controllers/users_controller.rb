@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
 def show
   @evaluate = Evaluate.new
+  @evaluates = Evaluate.includes(:user)
+  @kindness = Evaluate.average(:kindness)
+  @speedy = Evaluate.average(:speedy)
+  @frantically = Evaluate.average(:frantically)
+  @comprehensive = @kindness + @speedy + @frantically
   @posts = Post.includes(:user).order("created_at DESC")
 end
 
