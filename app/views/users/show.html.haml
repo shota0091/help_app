@@ -12,6 +12,7 @@
       .UserIntroduction
         = "紹介文:#{@user.explanation}"
       .userAddress
+        = "#{@user.name}さんの住所:#{}"
       - if @user.id != current_user.id
         .UserEvaluate
           %button.EvaluateBtn
