@@ -8,6 +8,11 @@ def show
   @speedy = Evaluate.average(:speedy)
   @frantically = Evaluate.average(:frantically)
   if @kindness != nil && @speedy != nil &&  @frantically != nil
+    @comprehensive = (@kindness + @frantically + @speedy) / 3
+  else 
+    @speedy = 0
+    @kindness = 0
+    @frantically = 0
     @comprehensive = @kindness + @frantically + @speedy
   end
   @posts = Post.includes(:user).order("created_at DESC")

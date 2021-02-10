@@ -12,7 +12,7 @@
       .UserIntroduction
         = "紹介文:#{@user.explanation}"
       .userAddress
-        = "#{@user.name}さんの住所:#{}"
+        = icon("fa","map-marker-alt")+"#{@user.name}さんの住所:#{@user.address.name}"
       - if @user.id != current_user.id
         .UserEvaluate
           %button.EvaluateBtn
@@ -21,13 +21,13 @@
       .UserStatus
         他のユーザーの評価（平均点）
         .UserStatus__Kindness
-          = "親切度 : #{@kindness}"
+          = icon('fa','smile') + "親切度 : #{@kindness} point"
         .UserStatus__speedy
-          = "迅速さ : #{@speedy}"
+          = icon('fa','shipping-fast') +"迅速さ : #{@speedy} point"
         .UserStatus__frantically
-          = "repeat : #{@frantically}"
+          = icon('fa','redo')+"repeat : #{@frantically} point"
         .UserStatus__comprehensive
-          = "総合力 : #{@comprehensive}"
+          = icon('fa','star')+"総合力 : #{@comprehensive} point"
       .UserEdit
         - if @user.id == current_user.id
           = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
