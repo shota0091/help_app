@@ -10,7 +10,12 @@
       .UserAge
         = "年齢：#{@user.age}"
       .UserIntroduction
-        = "紹介文:#{@user.explanation}"
+        自己PR:
+      .UserIntroduction__content
+      - if @user.explanation == nil
+        ユーザー情報編集から自己PRを編集できます
+      - else
+        = @user.explanation
       .userAddress
         = icon("fa","map-marker-alt")+"#{@user.name}さんの住所:#{@user.address.name}"
       - if @user.id != current_user.id
@@ -31,14 +36,20 @@
       .UserEdit
         - if @user.id == current_user.id
           = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
+      .UserChat
+        %button.ChatBtn
+          = icon('fa','comment') + "#{@user.name}さんとチャットする"
     .PostSide
       = "#{@user.name}さんの募集一覧"
-      - @posts.each do |i|
-        .PostImage
-          = link_to post_path(i.id) do
-            = image_tag i.image.url, class:"post-image"
-          .PostImage__introduction
+      .PostSide__contents
+        - @posts.each do |i|
+          .PostImage
             = link_to post_path(i.id) do
-              = i.explanation
-        .PostDay
-          = i.created_at.strftime('%Y/%m/%d')
+              = image_tag i.image.url, class:"post-image"
+            .PostImage__introduction
+              = link_to post_path(i.id) do
+                = i.explanation
+          .PostDay
+            = i.created_at.strftime('%Y/%m/%d')
+      .PostSide__OneMoer
+        = link_to "過去の募集をみる","#",class:"OenMore-text"
