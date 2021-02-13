@@ -9,7 +9,7 @@
           = "#{@user.name}さんをは親切でしたか？"
           .form
             .form__KindnessGood
-              = f.radio_button :kindness, "1",id: "kaidness-good" ,class: "UserKindnessEvaluate"
+              = f.radio_button :kindness, "3",id: "kaidness-good" ,class: "UserKindnessEvaluate"
               .form__KindnessGood__good
                 = f.label "親切" ,for:"kaidness-good"
             .form__KindnessUsually
@@ -17,14 +17,14 @@
               .form__KindnessUsually__Usually
                 = f.label "普通" ,for:"kaidness-usually"
             .form__KindnessBad
-              = f.radio_button :kindness, "3",id: "kaidness-bad" ,class: "UserKindnessEvaluate"
+              = f.radio_button :kindness, "1",id: "kaidness-bad" ,class: "UserKindnessEvaluate"
               .form__KindnessBad__bad
                 = f.label "不親切" ,for:"kaidness-bad"
         .UserEvaluate__UserSpeedy
           = "#{@user.name}さんをは迅速な対応でしたか？"
           .form
             .form__SpeedyGood
-              = f.radio_button :speedy, "1",id: "speedy-good" ,class: "UserKindnessEvaluate"
+              = f.radio_button :speedy, "3",id: "speedy-good" ,class: "UserKindnessEvaluate"
               .form__SpeedyGood__good
                 = f.label "迅速" ,for:"speedy-good"
             .form__SpeedyUsually
@@ -32,14 +32,14 @@
               .form__SpeedyUsually__Usually
                 = f.label "普通" ,for:"speedy-usually"
             .form__SpeedyBad
-              = f.radio_button :speedy, "3",id: "speedy-bad" ,class: "UserKindnessEvaluate"
+              = f.radio_button :speedy, "1",id: "speedy-bad" ,class: "UserKindnessEvaluate"
               .form__SpeedyBad__bad
                 = f.label "遅い" ,for:"speedy-bad"
         .UserEvaluate__frantically
           = "#{@user.name}さんにもう一度お願いしたいですか？"       
           .form
             .form__franticallyGood
-              = f.radio_button :frantically, "1",id: "frantically-good" ,class: "UserKindnessEvaluate"
+              = f.radio_button :frantically, "3",id: "frantically-good" ,class: "UserKindnessEvaluate"
               .form__FranticallyGood__good
                 = f.label "頼みたい" ,for:"frantically-good"
             .form__FranticallyUsually
@@ -47,7 +47,7 @@
               .form__FranticallyUsually__Usually
                 = f.label "普通" ,for:"frantically-usually"
             .form__FranticallyBad
-              = f.radio_button :frantically, "3",id: "frantically-bad" ,class: "UserKindnessEvaluate"
+              = f.radio_button :frantically, "1",id: "frantically-bad" ,class: "UserKindnessEvaluate"
               .form__FranticallyBad__bad
                 = f.label "これっきり" ,for:"frantically-bad"
         .UserEvaluate__SendBox
