@@ -4,7 +4,8 @@
       .close
         = icon('fas','times')
       .UserEvaluate
-        = "#{@user.name}さんを評価しよう"
+        .UserEvaluate__title
+          = "#{@user.name}さんを評価しよう"
         .UserEvaluate__UserKindness
           = "#{@user.name}さんをは親切でしたか？"
           .form
@@ -51,4 +52,4 @@
               .form__FranticallyBad__bad
                 = f.label "これっきり" ,for:"frantically-bad"
         .UserEvaluate__SendBox
-          = f.submit "#{@user.name}さんを評価する"
+          = f.submit "#{@user.name}さんを評価する",class:"send-btn"

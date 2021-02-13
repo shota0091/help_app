@@ -17,7 +17,10 @@
       - else
         = @user.explanation
       .userAddress
-        = icon("fa","map-marker-alt")+"#{@user.name}さんの住所:#{@user.address.name}"
+        - if @user.address_id == nil
+          = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : 未登録"
+        - else
+          = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : #{@user.address.name}"
       - if @user.id != current_user.id
         .UserEvaluate
           %button.EvaluateBtn
