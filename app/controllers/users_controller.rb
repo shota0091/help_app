@@ -15,7 +15,7 @@ def show
     @frantically = 0
     @comprehensive = @kindness + @frantically + @speedy
   end
-  @posts = Post.includes(:user).order("created_at DESC").limit(5)
+  @posts = Post.includes(:user).order("created_at DESC")
 end
 
 def eidt

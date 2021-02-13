@@ -21,12 +21,6 @@
           = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : 未登録"
         - else
           = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : #{@user.address.name}"
-      .UserEdit
-        - if @user.id == current_user.id
-          = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
-      .UserChat
-        %button.ChatBtn
-          = icon('fa','comment') + "#{@user.name}さんとチャットする"
         .UserEvaluate
         - if @user.id != current_user.id
           %button.EvaluateBtn
@@ -43,6 +37,12 @@
           = icon('fa','redo')+"repeat : #{@frantically} point"
         .UserStatus__comprehensive
           = icon('fa','star')+"総合力 : #{@comprehensive} point"
+      .UserEdit
+        - if @user.id == current_user.id
+          = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
+      .UserChat
+        %button.ChatBtn
+          = icon('fa','comment') + "#{@user.name}さんとチャットする"
     .PostSide
       = "#{@user.name}さんの募集一覧"
       .PostSide__contents
