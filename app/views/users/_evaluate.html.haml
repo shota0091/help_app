@@ -18,6 +18,8 @@
                 = f.label "普通" ,for:"kaidness-usually"
             .form__KindnessBad
               = f.radio_button :kindness,"1",id: "kaidness-bad" ,class: "UserKindnessEvaluate"
+              .form__KindnessBad__bad
+                = f.label "不親切" ,for:"kaidness-bad"
         .UserEvaluate__UserSpeedy
           = "#{@user.name}さんをは迅速な対応でしたか？"
           .form
