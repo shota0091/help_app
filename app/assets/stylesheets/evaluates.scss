@@ -25,14 +25,21 @@
   }
   .UserEvaluate{
     text-align: center;
-    &__UserKindness{
+    &__title{
+    font-size: 20px;
+    }
+    &__UserSpeedy,&__frantically,&__UserKindness{
       margin-top: 10px;
     }
-    &__UserSpeedy{
-      margin-top: 10px;
-    }
-    &__frantically{
-      margin-top: 10px;
+    &__SendBox{
+      .send-btu{
+        background-color:skyblue;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        width: 50%;
+      }
     }
   }
 }

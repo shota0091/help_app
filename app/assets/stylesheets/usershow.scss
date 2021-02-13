@@ -21,8 +21,21 @@
           border-radius: 50%;
         }
       }
-      .UserName{
-        margin-top: 10px;
+      .UserName,.UserAge{
+        text-align: center;
+      }
+      .UserAge{
+
+      }
+      .UserIntroduction{
+        white-space: pre-wrap;
+      }
+      .userAddress{
+        margin-top: 5px;
+        .fa-map-marker-alt{
+          color:red;
+          margin-right:5px;
+        }
       }
       .UserEvaluate{
         .EvaluateBtn{
@@ -31,12 +44,56 @@
           border: 1px solid transparent;
           border-radius: 10px;
           color:white;
+          font-weight: bold;
+          width: 100%;
+        }
+      }
+      .UserStatus{
+        margin: 5px 0;
+        &__text{
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        &__Kindness,&__speedy,&__frantically,&__comprehensive{
+          text-align: center;
+          .fa-smile{
+            margin-right: 5px;
+            color:#FF3399;
+          }
+          .fa-shipping-fast{
+            margin-right: 5px;
+            color: aqua;
+          }
+          .fa-redo{
+            margin-right: 5px;
+          }
+          .fa-star{
+            margin-right: 5px;
+            color:#FFFF00;
+          }
         }
       }
       .UserEdit{
         margin-top: 10px;
         .EditBtn{
+          width: 100%;
+          padding: 6px 14px;
           text-decoration: none;
+          background-color:skyblue;
+          border-radius: 10px;
+          color: white;
+          font-weight: bold;
+        }
+      }
+      .UserChat{
+        margin: 10px 0;
+        .ChatBtn{
+          text-decoration: none;
+          background-color:skyblue;
+          border: 1px solid transparent;
+          border-radius: 10px;
+          color: white;
+          font-weight: bold;
         }
       }
     }
