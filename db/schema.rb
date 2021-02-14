@@ -27,16 +27,11 @@ ActiveRecord::Schema.define(version: 2021_02_06_225135) do
     t.integer "kindness"
     t.integer "frantically"
     t.bigint "user_id"
+    t.bigint "reviwer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["reviwer_id"], name: "index_evaluates_on_reviwer_id"
     t.index ["user_id"], name: "index_evaluates_on_user_id"
-  end
-
-  create_table "homes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "text"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "post_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,6 +84,7 @@ ActiveRecord::Schema.define(version: 2021_02_06_225135) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "evaluates", "users"
+  add_foreign_key "evaluates", "users", column: "reviwer_id"
   add_foreign_key "post_tags", "posts"
   add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "users"
