@@ -21,12 +21,13 @@
           = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : 未登録"
         - else
           = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : #{@user.address.name}"
-      - if @user.id != current_user.id
-        - @posts.each do |i|
-          - if i.user.reviewed_by?(current_user)
-            .UserEvaluate
-              %button.EvaluateBtn
-                = "#{i.user.name}さんを評価する"
+        - if @user.id != current_user
+          .UserEvaluate
+            %button.EvaluateBtn
+              = "#{@user.name}さんを評価する"
+        - else
+          .UserEvaluate
+            ユーザー評価は1人1回です
       = render "evaluate"
       .UserStatus
         他のユーザーの評価（平均点）

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
 def show
-  @posts = Post.includes(:user).order("created_at DESC").limit(5)
+  @posts = @user.posts
 end
 
 def eidt
@@ -18,6 +18,14 @@ def update
   else
     render :edit
   end
+end
+
+def reviews
+  @users = user.reviewings
+end
+
+def reviewer
+  @users = user.reviewers
 end
 
 

@@ -11,8 +11,14 @@ Rails.application.routes.draw do
       get 'policy'
     end
   end
+  
   resources :users do
-    resources :reviews, only: :create
+    resources :reviews, only: :create do
+      member do
+        get :reviews
+        get :reviewer
+      end
+    end
   end
   resources :tags, only: :show
   resources :posts do
