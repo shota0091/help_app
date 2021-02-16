@@ -48,10 +48,12 @@ ActiveRecord::Schema.define(version: 2021_02_14_214552) do
     t.integer "speedy"
     t.integer "kindness"
     t.integer "frantically"
-    t.integer "reviewer_id"
-    t.integer "reviewing_id"
+    t.bigint "reviewer_id", null: false
+    t.bigint "reviewing_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
+    t.index ["reviewing_id"], name: "index_reviews_on_reviewing_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,4 +86,6 @@ ActiveRecord::Schema.define(version: 2021_02_14_214552) do
   add_foreign_key "post_tags", "posts"
   add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "users"
+  add_foreign_key "reviews", "users", column: "reviewer_id"
+  add_foreign_key "reviews", "users", column: "reviewing_id"
 end

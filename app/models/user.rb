@@ -8,10 +8,7 @@ class User < ApplicationRecord
   validates :age, numericality: { greater_than_or_equal_to:18 ,message: "は18歳以上を入力してください"}
 
 
-  has_many :sctive_reviews, class_name: "Review", foreign_key: :reviewer_id
-  has_many :reviewer, through: :active_reviews, source: :reviewing
-  has_many :passvie_reviews, class_name: "Review", foreign_key: :reviewing_id
-  has_many :reviewing, through: :active_reviews, source: :reviewer
+  has_many :reviews
 
   has_many :posts, dependent: :destroy
   has_many :comments,dependent: :destroy

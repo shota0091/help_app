@@ -12,14 +12,8 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users do
-    resources :reviews, only: :create do
-      member do
-        get :reviews
-        get :reviewer
-      end
-    end
-  end
+  resources :users 
+  resources :reviews, only: :create 
   resources :tags, only: :show
   resources :posts do
     resources :comments, only: [:create,:destroy]

@@ -4,8 +4,8 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.integer :speedy
       t.integer :kindness
       t.integer :frantically
-      t.integer :reviewer_id
-      t.integer :reviewing_id
+      t.references :reviewer, null: false, foreign_key: { to_table: :users }
+      t.references :reviewing, null: false, foreign_key: { to_table: :users }
       t.timestamps
     end
   end

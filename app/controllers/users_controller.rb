@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
 def show
   @posts = @user.posts
+  @review = Review.new
 end
 
 def eidt
@@ -19,15 +20,6 @@ def update
     render :edit
   end
 end
-
-def reviews
-  @users = user.reviewings
-end
-
-def reviewer
-  @users = user.reviewers
-end
-
 
 private
   def user_params
