@@ -21,21 +21,24 @@
           = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : 未登録"
         - else
           = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : #{@user.address.name}"
-      - if @user.id != current_user.id
-        .UserEvaluate
-          %button.EvaluateBtn
-            = "#{@user.name}さんを評価する"
+        - if @user.id != current_user
+          .UserEvaluate
+            %button.EvaluateBtn
+              = "#{@user.name}さんを評価する"
+        - else
+          .UserEvaluate
+            ユーザー評価は1人1回です
       = render "evaluate"
       .UserStatus
         他のユーザーの評価（平均点）
         .UserStatus__Kindness
-          = icon('fa','smile') + "親切度 : #{@kindness} point"
+          = icon('fa','smile') + "親切度 : 0 point"
         .UserStatus__speedy
-          = icon('fa','shipping-fast') +"迅速さ : #{@speedy} point"
+          = icon('fa','shipping-fast') +"迅速さ : 0 point"
         .UserStatus__frantically
-          = icon('fa','redo')+"repeat : #{@frantically} point"
+          = icon('fa','redo')+"repeat : 0 point"
         .UserStatus__comprehensive
-          = icon('fa','star')+"総合力 : #{@comprehensive} point"
+          = icon('fa','star')+"総合力 : 0 point"
       .UserEdit
         - if @user.id == current_user.id
           = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"

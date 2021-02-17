@@ -2,20 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user
 
 def show
-  @evaluate = Evaluate.new
-  @evaluates = Evaluate.includes(:user)
-  @kindness = Evaluate.average(:kindness)
-  @speedy = Evaluate.average(:speedy)
-  @frantically = Evaluate.average(:frantically)
-  if @kindness != nil && @speedy != nil &&  @frantically != nil
-    @comprehensive = (@kindness + @frantically + @speedy) / 3
-  else 
-    @speedy = 0
-    @kindness = 0
-    @frantically = 0
-    @comprehensive = @kindness + @frantically + @speedy
-  end
-  @posts = Post.includes(:user).order("created_at DESC").limit(5)
+  @posts = @user.posts
+  @review = Review.new
 end
 
 def eidt
@@ -32,7 +20,6 @@ def update
     render :edit
   end
 end
-
 
 private
   def user_params
