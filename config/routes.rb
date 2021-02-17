@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users 
-  resources :reviews, only: :create 
+  resources :users do
+    resources :reviews, only: :create 
+  end
   resources :tags, only: :show
   resources :posts do
     resources :comments, only: [:create,:destroy]

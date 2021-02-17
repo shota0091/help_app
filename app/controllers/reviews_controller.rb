@@ -3,14 +3,14 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     if @review.save
-      redirect_to users_path
+      redirect_to root_path
     else
-      render root_path
+      render :show
     end
   end
 
   private
   def review_params
-    params.require(:review).permit(:speedy, :kindness, :frantically).merge(reviewing: current_user.id,reviewer: params[:user_id])
+    params.require(:review).permit(:speedy, :kindness, :frantically).merge(reviewer_id: params[:user_id], reviewing_id: current_user.id)
   end
 end
