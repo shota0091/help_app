@@ -4,6 +4,18 @@ class UsersController < ApplicationController
 def show
   @posts = @user.posts
   @review = Review.new
+  @kindness = Review.where(reviewing_id: params[:id]).average(:kindness)
+  @speedy = Review.where(reviewing_id: params[:id]).average(:speedy)
+  @frantically = Review.where(reviewing_id: params[:id]).average(:frantically)
+  if @kindness != nil && @speedy != nil &&  @frantically != nil
+    @comprehensive = (@kindness + @frantically + @speedy)
+  else 
+    @speedy = 0
+    @kindness = 0
+    @frantically = 0
+    @comprehensive = @kindness + @frantically + @speedy
+  end
+
 end
 
 def eidt
