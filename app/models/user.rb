@@ -22,8 +22,4 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-
-  def reviewed_by?(user)
-    passvie_reviews.find_by(reviewer_id: user.id).present?
-  end
 end
