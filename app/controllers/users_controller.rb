@@ -8,7 +8,7 @@ def show
   @speedy = Review.where(reviewing_id: params[:id]).average(:speedy)
   @frantically = Review.where(reviewing_id: params[:id]).average(:frantically)
   if @kindness != nil && @speedy != nil &&  @frantically != nil
-    @comprehensive = (@kindness + @frantically + @speedy)
+    @comprehensive = (@kindness + @frantically + @speedy) / 3
   else 
     @speedy = 0
     @kindness = 0

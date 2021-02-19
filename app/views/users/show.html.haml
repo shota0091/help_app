@@ -27,7 +27,7 @@
               = "#{@user.name}さんを評価する"
       = render "evaluate"
       .UserStatus
-        他のユーザーの評価（平均点）
+        他のユーザーの評価
         .UserStatus__Kindness
           = icon('fa','smile') + "親切度 : #{@kindness.round(1)} point"
         .UserStatus__speedy
@@ -38,7 +38,8 @@
           = icon('fa','star')+"総合力 : #{@comprehensive.round(1)} point"
       .UserEdit
         - if @user.id == current_user.id
-          = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
+          %button.EditBtn
+            = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
       .UserChat
         %button.ChatBtn
           = icon('fa','comment') + "#{@user.name}さんとチャットする"

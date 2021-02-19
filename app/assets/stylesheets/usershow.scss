@@ -1,3 +1,13 @@
+@mixin btn {
+  width: 100%;
+  text-decoration: none;
+  background-color:skyblue;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  border: 1px solid transparent;
+}
+
 .UserPage{
   &__title{
     text-align: center;
@@ -16,6 +26,7 @@
     
     .IntroductionSide{
       .UserImage{
+        text-align: center;
         .user-image{
           width: 200px;
           border-radius: 50%;
@@ -23,15 +34,18 @@
       }
       .UserName,.UserAge{
         text-align: center;
-      }
-      .UserAge{
-
+        border-bottom: 1px solid black;
+        margin: 10px 120px;
       }
       .UserIntroduction{
+        text-align: center;
+        border-bottom: 1px solid black;
+        margin: 10px 120px;
         white-space: pre-wrap;
       }
       .userAddress{
-        margin-top: 5px;
+        margin-top: 15px;
+        text-align: center;
         .fa-map-marker-alt{
           color:red;
           margin-right:5px;
@@ -39,16 +53,11 @@
       }
       .UserEvaluate{
         .EvaluateBtn{
-          margin-top: 10px;
-          background-color: skyblue;
-          border: 1px solid transparent;
-          border-radius: 10px;
-          color:white;
-          font-weight: bold;
-          width: 100%;
+          @include btn;
         }
       }
       .UserStatus{
+        text-align: center;
         margin: 5px 0;
         &__text{
           font-weight: bold;
@@ -76,24 +85,13 @@
       .UserEdit{
         margin-top: 10px;
         .EditBtn{
-          width: 100%;
-          padding: 6px 14px;
-          text-decoration: none;
-          background-color:skyblue;
-          border-radius: 10px;
-          color: white;
-          font-weight: bold;
+          @include btn;
         }
       }
       .UserChat{
         margin: 10px 0;
         .ChatBtn{
-          text-decoration: none;
-          background-color:skyblue;
-          border: 1px solid transparent;
-          border-radius: 10px;
-          color: white;
-          font-weight: bold;
+          @include btn;
         }
       }
     }
