@@ -8,7 +8,11 @@ class User < ApplicationRecord
   validates :age, numericality: { greater_than_or_equal_to:18 ,message: "は18歳以上を入力してください"}
 
 
-  has_many :reviews
+  has_many :active_reviews, class_name: "Review",foreign_key: :reviewing_id
+  has_many :reviewings, through: :active_reviews, source: :reviewer
+  has_many :passive_reviews, class_name: "Review",foreign_key: :reviewer_id
+  has_many :reviewers, through: :active_reviews, source: :reviewing
+
   has_many :posts, dependent: :destroy
   has_many :comments,dependent: :destroy
   mount_uploader :image, ImageUploader
@@ -22,4 +26,9 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
+
+  def followed_by?(user)
+    passive_reviews.find_by(reviewing_id: user.id).present?
+  end
+
 end
