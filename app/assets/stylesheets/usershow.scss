@@ -25,6 +25,7 @@
     }
     
     .IntroductionSide{
+      text-align: center;
       .UserImage{
         text-align: center;
         .user-image{
@@ -33,19 +34,22 @@
         }
       }
       .UserName,.UserAge{
-        text-align: center;
+        
         border-bottom: 1px solid black;
         margin: 10px 120px;
       }
       .UserIntroduction{
-        text-align: center;
+      
         border-bottom: 1px solid black;
         margin: 10px 120px;
-        white-space: pre-wrap;
+        &__content{
+          white-space: pre-wrap;
+        }
+        
       }
       .userAddress{
         margin-top: 15px;
-        text-align: center;
+        
         .fa-map-marker-alt{
           color:red;
           margin-right:5px;

@@ -1,0 +1,31 @@
+.ChatSisde
+  .ChatSisde__ChatBox
+    .ChatSisde__ChatBox__title
+      = icon('fa','comment')+"#{@user.name}とのチャット" 
+    .ChatSisde__ChatBox__contents
+      - if current_user == @user.id
+        .content
+          .content__UserImage
+            = image_tag @user.image.url,class:"user-image"
+          .content__usercontent
+            .name
+              = @user.name
+            .content__CommentDay
+              aaaaa
+          .comment
+            1990/03/01
+      - else
+        .content
+          .content__UserImage
+            = image_tag @user.image.url,class:"user-image"
+          .content__usercontent
+            .name
+              = @user.name
+            .content__CommentDay
+              aaaaa
+          .comment
+            1990/03/01
+    .ChatSisde__ChatBox__SendSide
+      = form_with(model: [@user], local: true, id: "user-chat") do |f|
+        = f.text_area :text,class: "Comment-form",placeholder: "コメントする", rows: "2"
+        = f.submit "コメントをする",class: "Comment-Send"
