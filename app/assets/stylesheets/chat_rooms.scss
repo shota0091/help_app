@@ -1,0 +1,49 @@
+.ChatRoom{
+  &__ContentBox{
+    margin: 0px 100px;
+    @media(min-width: 1068px) {
+      margin: 0px 400px ;
+    }
+    &__title{
+      text-align: center;
+      padding:30px 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    &__Message{
+      .MessageBox{
+        display: flex;
+        border-bottom:1px solid black;
+        padding: 50px 0 10px;
+        &__UserSide{
+          .user-link{
+            text-decoration: none;
+          }
+          .UserImage{
+            .user-image{
+              width: 100px;
+              border-radius:50px;
+            }
+          }
+          .UserName{
+            text-align:center;
+          }
+        }
+        &__MessageSide{
+          display: flex;
+          align-items: center;
+          width: 100%;
+          .LastMessage{
+            font-size: 25px;
+            margin-left:20px;
+          }
+          .LastDay{
+            margin-left: auto;
+            margin-top: auto;
+            color:lightgray;
+          }
+        }
+      }
+    }
+  }
+}

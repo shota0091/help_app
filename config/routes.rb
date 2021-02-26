@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :reviews, only: :create 
-    resources :chats, only: :create
   end
+  resources :chat_rooms, only: [:create,:show,:index]
   resources :tags, only: :show
   resources :posts do
     resources :comments, only: [:create,:destroy]

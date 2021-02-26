@@ -1,6 +1,6 @@
 @mixin list {
   margin-left: 15px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   @media(min-width: 1068px) {
     font-size: 17px;
@@ -35,7 +35,7 @@
     width: 80%;
     display: flex;
     @media(min-width: 1068px) {
-      width: 35%;
+      width: 55%;
     }
     .menu{
       height: 10%;

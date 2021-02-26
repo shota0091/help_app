@@ -1,0 +1,31 @@
+.ChatRoom
+  .ChatRoom__ContentBox
+    .ChatRoom__ContentBox__title
+      メッセージ一覧
+    .ChatRoom__ContentBox__Message
+      .MessageBox
+        .MessageBox__UserSide
+          = link_to "#",class:"user-link" do
+            .UserImage
+              = image_tag "default.jpg",class:"user-image"
+            .UserName
+              はと
+        .MessageBox__MessageSide
+          .LastMessage
+            こんばんは
+          .LastDay
+            1990/02/01
+      .MessageBox
+        .MessageBox__UserSide
+          = link_to "#",class:"user-link" do
+            .UserImage
+              = image_tag "default.jpg",class:"user-image"
+            .UserName
+              はと
+        .MessageBox__MessageSide
+          .LastMessage
+            こんばんは
+          .LastDay
+            1990/02/01
+    .pages
+      .pages__box

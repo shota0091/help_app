@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
 def show
   @posts = @user.posts
-  @chat = Chat.new
   @review = Review.new
   @kindness = Review.where(reviewing_id: params[:id]).average(:kindness)
   @speedy = Review.where(reviewing_id: params[:id]).average(:speedy)

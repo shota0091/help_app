@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_14_214552) do
+ActiveRecord::Schema.define(version: 2021_02_26_123219) do
+
+  create_table "chat_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "chat_room_id"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_room_id"], name: "index_chats_on_chat_room_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "post_id"
@@ -63,6 +78,15 @@ ActiveRecord::Schema.define(version: 2021_02_14_214552) do
     t.index ["tag_name"], name: "index_tags_on_tag_name", unique: true
   end
 
+  create_table "user_chat_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "chat_room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_room_id"], name: "index_user_chat_rooms_on_chat_room_id"
+    t.index ["user_id"], name: "index_user_chat_rooms_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image"
     t.string "explanation"
@@ -81,6 +105,8 @@ ActiveRecord::Schema.define(version: 2021_02_14_214552) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chats", "chat_rooms"
+  add_foreign_key "chats", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "post_tags", "posts"
@@ -88,4 +114,6 @@ ActiveRecord::Schema.define(version: 2021_02_14_214552) do
   add_foreign_key "posts", "users"
   add_foreign_key "reviews", "users", column: "reviewer_id"
   add_foreign_key "reviews", "users", column: "reviewing_id"
+  add_foreign_key "user_chat_rooms", "chat_rooms"
+  add_foreign_key "user_chat_rooms", "users"
 end

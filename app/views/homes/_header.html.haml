@@ -7,6 +7,8 @@
   .header__contents
     %ul.menu
       - if user_signed_in?
+        %li.menu__message
+          = link_to "メッセージ",chat_rooms_path ,class: "ChatRoom-btn"
         %li.menu__LogIn
           = link_to "新規投稿",new_post_path ,class:"LogIn-btn"
         %li.menu__registration
