@@ -24,14 +24,18 @@
           = link_to "ゲストログイン",users_guest_sign_in_path, method: :post,class:"GuestLogIn-btn"
 .arrow_box
   .alert
-    新着メッセージ
-    .UserSide
-      .user-Image
-        = image_tag "default.jpg",class:"user-image"
-      .UserName
-        test
-    .MessageBox__MessageSide
-      .LastMessage
-        こんばんは
-      .LastDay
-        1990/02/01
+    .alert__title
+      新着メッセージ
+    .alert__contents
+      .UserSide
+        = link_to "#",class:"link-btn" do
+          .UserImage
+            = image_tag "default.jpg",class:"user-image"
+          .UserName
+            testさんからメッセージ
+      .MessageSide
+        .LastMessage
+          こんばんは
+        .LastDay
+          1990/02/01
+          
