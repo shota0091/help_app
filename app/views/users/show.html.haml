@@ -43,11 +43,12 @@
       .UserEdit
         - if @user.id == current_user.id
           %button.EditBtn
-            = link_to icon('fas','edit')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
+            = link_to icon('fas','edit') + "ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
       - if @user.id != current_user.id
         .UserChat
-          %button.ChatBtn
-            = icon('fa','comment') + "#{@user.name}さんとチャットする"
+          = link_to "#" do
+            %button.ChatBtn
+              = icon('fa','comment') + "#{@user.name}さんとチャットする"
     .PostSide
       = "#{@user.name}さんの募集一覧"
       .PostSide__contents

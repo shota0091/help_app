@@ -19,6 +19,9 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :address
 
+  has_many :user_chat_rooms
+  has_many :chat_rooms,through: :user_chat_rooms
+
 
   def self.guest
     find_or_create_by!(name: 'ゲスト',email: 'guest@example.com',age: 20) do |user|
