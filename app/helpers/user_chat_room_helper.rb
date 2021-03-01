@@ -1,2 +1,0 @@
-module UserChatRoomHelper
-end
