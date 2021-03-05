@@ -1,0 +1,19 @@
+.UserChat{
+  display: flex;
+  height: 90vh;
+  .UserSide{
+    background-color: lightblue;
+    width: 30%;
+  }
+  .MessageSide{
+    width: calc(100% - 30%);
+    &__MessageBox{
+      height: 90%;
+      background-color: aqua;
+    }
+    &__FormBox{
+      height: clac(100% - 90%);
+      background-color: white;
+    }
+  }
+}
