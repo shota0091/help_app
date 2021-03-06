@@ -94,12 +94,79 @@
       }
     }
     &__MessageBox{
-      height: 90%;
+      height: 80%;
       background-color: aqua;
+      .MessageContents{
+        &__show{
+          padding:5px 10px;
+          background-color:#333399;
+          color:white;
+          font-weight: bold;
+          border-radius: 2px;
+        }
+        &__content{
+          margin: 30px 30px 64px 30px;
+          &__UserData{
+            display: flex;
+            align-items: center;
+            .image{
+              width: 10%;
+              .user-image{
+                width: 100%;
+                border-radius: 50%;
+              }
+            }
+            .name{
+              font-size: 20px;
+              margin-left: 10px;
+            }
+          }
+          &__MessageData{
+            display: flex;
+            align-items: flex-end;
+            .message{
+              margin: 10px 0 0 10px;
+              font-size: 20px;
+            }
+            .day{
+              font-size: 13px;
+              color:lightgray;
+              margin-left: 5px;
+            }
+          }
+          &__CurrentUserMessageData{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            .CurrentUserMessage{
+              margin: 10px 0 0 10px;
+              font-size: 20px;
+            }
+            .CurrentuserDay{
+              font-size: 13px;
+              color:lightgray;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
     }
     &__FormBox{
-      height: clac(100% - 90%);
+      height: clac(100% - 80%);
       background-color: white;
+      .Form{
+        .message-form{
+          width: 90%;
+          height: 40px;
+        }
+        .fa-image{
+          position: relative;
+          right: 30px;
+        }
+        .form-submit{
+          height: 40px;
+        }
+      }
     }
   }
 }
