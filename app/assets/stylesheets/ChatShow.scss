@@ -1,12 +1,98 @@
+.link_to{
+  text-decoration: none;
+}
+
 .UserChat{
   display: flex;
   height: 90vh;
   .UserSide{
-    background-color: lightblue;
     width: 30%;
+    &__ChatUsers{
+      &__NewMessage{
+        text-align: center;
+        margin: 20px;
+        padding: 10px;
+        border:1px solid black;
+        border-radius: 5px;
+      }
+    .contents{
+        margin: 15px 10px 30px;
+        border-bottom: 1px solid black;
+        padding-bottom: 10px;
+        overflow: scroll; 
+        &__UsersData{
+          display: flex;
+          align-items: center;
+          
+          &__UserImage{
+            width: 15%;
+            .user-image{
+              width: 100%;
+              border-radius: 50%;
+            }
+          }
+          &__UserName{
+            margin-left: 10px;
+            font-size: 17px;
+          }
+        }
+      &__LastMessage{
+        margin: 15px 10px 0;
+        font-size: 20px;
+        text-overflow: ellipsis;
+        color:black;
+      }
+      &__LastDays{
+        text-align: end;
+        color: lightgrey;
+        font-size:12px;
+      }
+    }
+    }
   }
   .MessageSide{
     width: calc(100% - 30%);
+    &__Userheader{
+      .SendUser{
+        display: flex;
+        border: 3px solid aqua;
+        margin: 20px 25px 10px;
+        padding: 10px;
+        border-radius: 5px;
+        justify-content: space-between;
+        &__contents{
+          display: flex;
+          align-items: center;
+          &__name{
+            font-size:23px;
+          }
+          &__area,&__old{
+            margin-left: 5px;
+            .fa-map-marker-alt{
+              margin-right: 2px;
+              color:red;
+            }
+          }
+        }
+        &__items{
+          display: flex;
+          align-items: center;
+          &__like,&__report{
+            padding:5px;
+            margin-right: 15px;
+            border:1px solid black;
+            border-radius: 10px;
+            .fa-heart{
+              color:#FF6699;
+              margin-right: 3px;
+            }
+            .fa-flag{
+              margin-right: 3px;
+            }
+          }
+        }
+      }
+    }
     &__MessageBox{
       height: 90%;
       background-color: aqua;
