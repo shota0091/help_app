@@ -7,6 +7,8 @@
   .header__contents
     %ul.menu
       - if user_signed_in?
+        %li.menu__message
+          = icon('fa','bell')
         %li.menu__LogIn
           = link_to "新規投稿",new_post_path ,class:"LogIn-btn"
         %li.menu__registration
@@ -20,3 +22,31 @@
           = link_to "会員登録",new_user_registration_path,class:"registration-btn"
         %li.menu__GuestLogIn
           = link_to "ゲストログイン",users_guest_sign_in_path, method: :post,class:"GuestLogIn-btn"
+.arrow_box
+  .alert
+    .alert__title
+      新着メッセージ
+    .alert__contents
+      .UserSide
+        = link_to "#",class:"link-btn" do
+          .UserImage
+            = image_tag "default.jpg",class:"user-image"
+          .UserName
+            testさんからメッセージ
+      .MessageSide
+        .LastMessage
+          こんばんは
+        .LastDay
+          1990/02/01
+      .UserSide
+        = link_to "#",class:"link-btn" do
+          .UserImage
+            = image_tag "default.jpg",class:"user-image"
+          .UserName
+            testさんからメッセージ
+      .MessageSide
+        .LastMessage
+          こんばんは
+        .LastDay
+          1990/02/01
+          

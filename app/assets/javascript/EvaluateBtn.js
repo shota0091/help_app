@@ -2,7 +2,7 @@ $(document).on('turbolinks:load',function(){
   $('.EvaluateBtn').click(function(){
     $('.EvaluateSide').fadeIn();
   });
-  $('.close').click(function(){
+  $('.fa-times').click(function(){
     $('.EvaluateSide').fadeOut();
   });
 })

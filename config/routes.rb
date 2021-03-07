@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :reviews, only: :create 
   end
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show]
   resources :tags, only: :show
   resources :posts do
     resources :comments, only: [:create,:destroy]

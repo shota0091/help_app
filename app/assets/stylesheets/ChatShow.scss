@@ -1,0 +1,181 @@
+.link_to{
+  text-decoration: none;
+}
+
+.UserChat{
+  display: flex;
+  height: 90vh;
+  .UserSide{
+    width: 30%;
+    &__ChatUsers{
+      &__NewMessage{
+        text-align: center;
+        margin: 20px;
+        padding: 10px;
+        border:1px solid black;
+        border-radius: 5px;
+      }
+    .contents{
+        margin: 15px 10px 30px;
+        border-bottom: 1px solid black;
+        padding-bottom: 10px;
+        overflow: scroll; 
+        &__UsersData{
+          display: flex;
+          align-items: center;
+          
+          &__UserImage{
+            width: 15%;
+            .user-image{
+              width: 100%;
+              border-radius: 50%;
+            }
+          }
+          &__UserName{
+            margin-left: 10px;
+            font-size: 17px;
+          }
+        }
+      &__LastMessage{
+        margin: 15px 10px 0;
+        font-size: 20px;
+        text-overflow: ellipsis;
+        color:black;
+      }
+      &__LastDays{
+        text-align: end;
+        color: lightgrey;
+        font-size:12px;
+      }
+    }
+    }
+  }
+  .MessageSide{
+    width: calc(100% - 30%);
+    &__Userheader{
+      .SendUser{
+        display: flex;
+        border: 3px solid aqua;
+        margin: 20px 25px 10px;
+        padding: 10px;
+        border-radius: 5px;
+        justify-content: space-between;
+        &__contents{
+          display: flex;
+          align-items: center;
+          &__name{
+            font-size:23px;
+          }
+          &__area,&__old{
+            margin-left: 5px;
+            .fa-map-marker-alt{
+              margin-right: 2px;
+              color:red;
+            }
+          }
+        }
+        &__items{
+          display: flex;
+          align-items: center;
+          &__like,&__report{
+            padding:5px;
+            margin-right: 15px;
+            border:1px solid black;
+            border-radius: 10px;
+            .fa-heart{
+              color:#FF6699;
+              margin-right: 3px;
+            }
+            .fa-flag{
+              margin-right: 3px;
+            }
+          }
+        }
+      }
+    }
+    &__MessageBox{
+      height: 80%;
+      background-color: aqua;
+      .MessageContents{
+        &__show{
+          padding:5px 10px;
+          background-color:#333399;
+          color:white;
+          font-weight: bold;
+          border-radius: 2px;
+        }
+        &__content{
+          margin: 30px 30px 64px 30px;
+          &__UserData{
+            display: flex;
+            align-items: center;
+            .image{
+              width: 10%;
+              .user-image{
+                width: 100%;
+                border-radius: 50%;
+              }
+            }
+            .name{
+              font-size: 20px;
+              margin-left: 10px;
+            }
+          }
+          &__MessageData{
+            display: flex;
+            align-items: flex-end;
+            .message{
+              margin: 10px 0 0 10px;
+              font-size: 20px;
+            }
+            .day{
+              font-size: 13px;
+              color:lightgray;
+              margin-left: 5px;
+            }
+          }
+          &__CurrentUserMessageData{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            .CurrentUserMessage{
+              margin: 10px 0 0 10px;
+              font-size: 20px;
+            }
+            .CurrentuserDay{
+              font-size: 13px;
+              color:lightgray;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+    &__FormBox{
+      height: clac(100% - 80%);
+      background-color: white;
+      .Form{
+        position: absolute;
+        display: flex;
+        &__InputSide{
+          width: 100%;
+          .message-form{
+            @media(min-width: 1068px) {
+              width: 967.5px;
+            }
+            width: 580px;
+            height: 40px;
+          }
+          .fa-image{
+            position: absolute;
+             top: 10px;
+             right: 50px;
+          }
+          .form-submit{
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}

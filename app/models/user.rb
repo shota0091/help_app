@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :name, presence: { message: 'を入力してください' }
   validates :age, numericality: { greater_than_or_equal_to:18 ,message: "は18歳以上を入力してください"}
 
-
   has_many :active_reviews, class_name: "Review",foreign_key: :reviewing_id
   has_many :reviewings, through: :active_reviews, source: :reviewer
   has_many :passive_reviews, class_name: "Review",foreign_key: :reviewer_id
@@ -19,6 +18,9 @@ class User < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :address
+
+  has_many :user_chat_rooms
+  has_many :chat_rooms,through: :user_chat_rooms
 
 
   def self.guest

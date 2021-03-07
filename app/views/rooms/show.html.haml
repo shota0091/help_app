@@ -1,0 +1,59 @@
+.UserChat
+  .UserSide
+    .UserSide__ChatUsers
+      .UserSide__ChatUsers__NewMessage
+        新着メッセージ
+      .contents
+        = link_to "#" ,class: "link_to"do
+          .contents__UsersData
+            .contents__UsersData__UserImage
+              = image_tag "default.jpg" ,class:'user-image'
+            .contents__UsersData__UserName
+              白鳥
+          .contents__LastMessage
+            こんばんは
+          .contents__LastDays
+            1990/09
+  .MessageSide
+    .MessageSide__Userheader
+      .SendUser
+        .SendUser__contents
+          .SendUser__contents__name
+            = link_to "名前:白鳥","#",class:"link_to"
+          .SendUser__contents__area
+            = icon("fa","map-marker-alt")+"東京"
+          .SendUser__contents__old
+            19歳
+        .SendUser__items
+          .SendUser__items__like
+            = icon('fa','heart')+"お気に入り"
+          .SendUser__items__report
+            = icon('fa','flag')+"通報"
+    .MessageSide__MessageBox
+      .MessageContents
+        .MessageContents__show
+          受信したメッセージ
+        .MessageContents__content
+          .MessageContents__content__UserData
+            .image
+              = image_tag "default.jpg" ,class:'user-image'
+            .name
+              白鳥
+          .MessageContents__content__MessageData
+            .message
+              こんばんは
+            .day
+              1000/10/10
+          .MessageContents__content__CurrentUserMessageData
+            .CurrentUserMessage
+              こんばんは
+            .CurrentuserDay
+              1000/10/10
+    .MessageSide__FormBox
+      .Form
+        = form_with(model: @message, local: true, id: "new_comment") do |f|
+          .Form__InputSide
+            = f.text_field :messages,placeholder: "メッセージを入力して下さい",class:"message-form"
+            = icon('fas', 'image')
+            = f.hidden_field :room_id, value: @room.id
+            = f.submit "投稿",class: 'form-submit'
