@@ -52,7 +52,8 @@
     .MessageSide__FormBox
       .Form
         = form_with(model: @message, local: true, id: "new_comment") do |f|
-          = f.text_field :messages,placeholder: "メッセージを入力して下さい",class:"message-form"
-          = icon('fas', 'image')
-          = f.hidden_field :room_id, value: @room.id
-          = f.submit "投稿",class: 'form-submit'
+          .Form__InputSide
+            = f.text_field :messages,placeholder: "メッセージを入力して下さい",class:"message-form"
+            = icon('fas', 'image')
+            = f.hidden_field :room_id, value: @room.id
+            = f.submit "投稿",class: 'form-submit'

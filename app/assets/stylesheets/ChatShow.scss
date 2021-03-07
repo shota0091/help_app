@@ -155,16 +155,25 @@
       height: clac(100% - 80%);
       background-color: white;
       .Form{
-        .message-form{
-          width: 90%;
-          height: 40px;
-        }
-        .fa-image{
-          position: relative;
-          right: 30px;
-        }
-        .form-submit{
-          height: 40px;
+        position: absolute;
+        display: flex;
+        &__InputSide{
+          width: 100%;
+          .message-form{
+            @media(min-width: 1068px) {
+              width: 967.5px;
+            }
+            width: 580px;
+            height: 40px;
+          }
+          .fa-image{
+            position: absolute;
+             top: 10px;
+             right: 50px;
+          }
+          .form-submit{
+            height: 40px;
+          }
         }
       }
     }
