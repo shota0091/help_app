@@ -18,16 +18,21 @@
     .MessageSide__Userheader
       .SendUser
         .SendUser__contents
-          .SendUser__contents__name
-            = link_to "名前:白鳥","#",class:"link_to"
-          .SendUser__contents__area
-            = icon("fa","map-marker-alt")+"東京"
-          .SendUser__contents__old
-            19歳
+          - @entries.each do |e|
+            - if e.user.id != current_user.id
+              .SendUser__contents__name
+                = link_to "#{e.user.name}",user_path(e.user.id),class:"link_to"
+              .SendUser__contents__area
+                - if e.user.address_id != nil
+                  = icon("fa","map-marker-alt")+"#{e.user.address.name}"
+                - else
+                  = icon("fa","map-marker-alt")+"未設定"
+              .SendUser__contents__old
+                = "#{e.user.age}歳"
         .SendUser__items
-          .SendUser__items__like
+          %button.SendUser__items__like
             = icon('fa','heart')+"お気に入り"
-          .SendUser__items__report
+          %button.SendUser__items__report
             = icon('fa','flag')+"通報"
     .MessageSide__MessageBox
       .MessageContents
@@ -51,9 +56,24 @@
               1000/10/10
     .MessageSide__FormBox
       .Form
-        = form_with(model: @message, local: true, id: "new_comment") do |f|
+        = form_with(model: @message, local: true, id: "chat-commnet") do |f|
           .Form__InputSide
             = f.text_field :messages,placeholder: "メッセージを入力して下さい",class:"message-form"
             = icon('fas', 'image')
+            .ModalWindow
+              .ModalWindow__ImageBox
+                .close
+                  = icon('fas','times')
+                .ModalWindow__ImageBox__title
+                  画像を投稿しよう
+                  %div#previews
+                    .preview
+                      .preview__icon
+                        = icon('fas', 'image')
+                        .preview__text
+                          投稿するとサムネイルが表示されます
+                  = f.file_field :image, class:"FormField-image",accept: "image/png, image/jpeg"
+                  .ModalWindow__ImageBox__submit
+                    = f.submit "画像を投稿",class: "image-submit"
             = f.hidden_field :room_id, value: @room.id
             = f.submit "投稿",class: 'form-submit'

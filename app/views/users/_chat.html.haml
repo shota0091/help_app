@@ -1,11 +1,10 @@
 - unless @user.id == current_user.id
   - if @isRoom == true
     = link_to "/rooms/#{@roomId}" do
-      .UserChat
-        %button.ChatBtn
-          = icon('fa','comment') + "#{@user.name}さんとチャットする"
+      %button.ChatBtn
+        = icon('fa','comment') + "#{@user.name}さんとチャットする"
   - else
     = form_for @room do |f|
       = fields_for @entry do |e|
         = e.hidden_field :user_id, value: @user.id
-      = f.submit "チャットを始める"
+      = f.submit "チャットを始める",class:"Chat-Btn"

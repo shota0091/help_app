@@ -94,9 +94,12 @@
       }
       .UserChat{
         margin: 10px 0;
-        .ChatBtn{
-          @include btn;
-        }
+      }
+      .ChatBtn{
+        @include btn;
+      }
+      .Chat-Btn{
+        @include btn;
       }
     }
     .PostSide{

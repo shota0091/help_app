@@ -156,9 +156,9 @@
       background-color: white;
       .Form{
         position: absolute;
-        display: flex;
         &__InputSide{
           width: 100%;
+          display: flex;
           .message-form{
             @media(min-width: 1068px) {
               width: 967.5px;
@@ -179,3 +179,59 @@
     }
   }
 }
+
+.image{
+  display: none;
+}
+
+.ModalWindow{
+  display: none;
+  position: fixed;
+  @media(min-width: 1068px) {
+    padding: 300px 400px;
+  }
+  padding: 200px 70px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  &__ImageBox{
+    background-color: white;
+    padding: 50px;
+    .close{
+      text-align: end;
+    }
+    &__title{
+      text-align: center;
+      .preview{
+        margin: 10px 0 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 1em;
+        border:1px dashed lightslategray;
+        background-color:rgb(245, 245, 245);
+        cursor:pointer;
+        height: 200px;
+      }
+    }
+    .FormField-image{
+      display: none;
+    }
+    &__submit{
+      text-align: center;
+      .image-submit{
+        width: 70%;
+        background-color: skyblue;
+        color:white;
+        border: 1px solid transparent;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
