@@ -34,10 +34,10 @@
             = icon('fa','heart')+"お気に入り"
           %button.SendUser__items__report
             = icon('fa','flag')+"通報"
+    .MessageSide__heading
+      受信したメッセージ
     .MessageSide__MessageBox
       .MessageContents
-        .MessageContents__show
-          受信したメッセージ
         .MessageContents__content
           - @messages.each do |i|
             .MessageContents__content__UserData
@@ -48,6 +48,9 @@
             .MessageContents__content__MessageData
               .message
                 = i.messages
+              - if i.image.url != nil
+                .MessageImage
+                  = image_tag i.image.url,class:'meassage-image'
               .day
                 = i.created_at.strftime('%Y/%m/%d %H:%M:%S')
     .MessageSide__FormBox

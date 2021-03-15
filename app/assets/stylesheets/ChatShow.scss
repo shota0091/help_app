@@ -93,17 +93,19 @@
         }
       }
     }
+    &__heading{
+      padding:5px 10px;
+      background-color:#333399;
+      color:white;
+      font-weight: bold;
+      border-radius: 2px;
+    }
     &__MessageBox{
       height: 80%;
+      overflow: scroll;
       background-color: aqua;
       .MessageContents{
-        &__show{
-          padding:5px 10px;
-          background-color:#333399;
-          color:white;
-          font-weight: bold;
-          border-radius: 2px;
-        }
+
         &__content{
           margin: 30px 30px 64px 30px;
           &__UserData{
@@ -128,6 +130,13 @@
             .message{
               margin: 10px 0 0 10px;
               font-size: 20px;
+            }
+            .MessageImage{
+              .meassage-image{
+                width: 350px;
+                height: 200px;
+                margin: 15px 10px 20px 0;
+              }
             }
             .day{
               font-size: 13px;
