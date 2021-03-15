@@ -109,7 +109,7 @@
           &__UserData{
             display: flex;
             align-items: center;
-            .image{
+            .UsersImage{
               width: 10%;
               .user-image{
                 width: 100%;
@@ -124,25 +124,12 @@
           &__MessageData{
             display: flex;
             align-items: flex-end;
+            margin-bottom: 30px;
             .message{
               margin: 10px 0 0 10px;
               font-size: 20px;
             }
             .day{
-              font-size: 13px;
-              color:lightgray;
-              margin-left: 5px;
-            }
-          }
-          &__CurrentUserMessageData{
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            .CurrentUserMessage{
-              margin: 10px 0 0 10px;
-              font-size: 20px;
-            }
-            .CurrentuserDay{
               font-size: 13px;
               color:lightgray;
               margin-left: 5px;
@@ -163,7 +150,7 @@
             @media(min-width: 1068px) {
               width: 967.5px;
             }
-            width: 580px;
+            width: 495px;
             height: 40px;
           }
           .fa-image{
@@ -180,9 +167,7 @@
   }
 }
 
-.image{
-  display: none;
-}
+
 
 .ModalWindow{
   display: none;
