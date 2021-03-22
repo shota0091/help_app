@@ -19,8 +19,9 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :address
 
-  has_many :user_chat_rooms
-  has_many :chat_rooms,through: :user_chat_rooms
+  has_many :entries
+  has_many :rooms, through: :entries
+  has_many :messages
 
 
   def self.guest

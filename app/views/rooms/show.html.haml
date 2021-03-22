@@ -3,17 +3,17 @@
     .UserSide__ChatUsers
       .UserSide__ChatUsers__NewMessage
         新着メッセージ
-      .contents
-        = link_to "#" ,class: "link_to"do
-          .contents__UsersData
-            .contents__UsersData__UserImage
-              = image_tag "default.jpg" ,class:'user-image'
-            .contents__UsersData__UserName
-              白鳥
-          .contents__LastMessage
-            こんばんは
-          .contents__LastDays
-            1990/09
+      - @rooms.each do |room|
+        .contents
+          = link_to "/rooms/#{room.id}" ,class: "link_to"do
+            .contents__UsersData
+              .contents__UsersData__UserImage
+                = opponent_user_image(room)
+              .contents__UsersData__UserName
+                = opponent_user(room)
+            .contents__LastMessag
+              = most_new_message_preview(room)
+            .contents__LastDays
   .MessageSide
     .MessageSide__Userheader
       .SendUser
