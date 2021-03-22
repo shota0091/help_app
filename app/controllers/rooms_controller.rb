@@ -8,6 +8,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @rooms = current_user.rooms.joins(:messages).includes(:messages).order("messages.created_at DESC")
+    @message = Message.all
     @room = Room.find(params[:id])
     if Entry.where(user_id: current_user.id,room_id: @room.id).present?
       @messages = @room.messages
