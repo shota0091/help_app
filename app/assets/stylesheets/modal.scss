@@ -1,0 +1,51 @@
+.Modal{
+  text-align: center;
+  border: 1px solid lightgray;
+  margin: 0 120px;
+  @media(min-width: 1068px) {
+    margin: 0 350px;
+  }
+  .notification{
+    margin-top: 30px;
+    padding-left: 10px;
+    text-align: start;
+    border-bottom:1px dashed gray;
+  }
+  .ContentBox{
+    overflow: scroll;
+    .contents{
+    overflow: scroll; 
+    padding:30px 50px 10px;
+    border-bottom: 1px solid gray;
+    text-align: start;
+    &__user{
+      display: flex;
+      align-items: center;
+      .UserImage{
+        width: 50px;
+        .ContetsImage{
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+      .UserName{
+        font-size: 20px;
+        margin-left: 15px;
+      }
+    }
+    &__content{
+      display: flex;
+      align-items: flex-end;
+      .comment{
+        margin-top: 20px;
+        font-size: 20px;
+      }
+      .day{
+        color:lightgray;
+        font-size: 12px;
+        margin-left: auto;
+      }
+    }
+    }
+  }
+}
