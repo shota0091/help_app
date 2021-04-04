@@ -1,0 +1,24 @@
+- notifications = @notifications.where.not(visitor_id: current_user.id)
+.Modal
+  .notification
+    通知
+  .ContentBox
+    - if notifications.exists?
+      -visitor = notification.visitor
+      -visited = notification.visited
+      .contents
+        = link_to user_path(visitor) do
+          .contents__user
+            .UserImage
+              = image_tag visitor.image, class:"ContetsImage"
+            .UserName
+              = "#{visitor.name}さん"
+        .contents__content
+          .comment
+            - if notification.action == 'dm'
+              = link_to "あなたにDMを送りました","/rooms/#{visited.room.id}"
+          .day
+            = notification.created_at
+    - else
+      .contents
+        通知がありません

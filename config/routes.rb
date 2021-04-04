@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "homes#index"
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :reviews, only: :create 
   end
+  resources :notifications, only: :index
   resources :messages, only: [:create]
   resources :rooms, only: [:create,:show]
   resources :tags, only: :show
