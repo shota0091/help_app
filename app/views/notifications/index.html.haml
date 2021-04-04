@@ -4,21 +4,24 @@
     通知
   .ContentBox
     - if notifications.exists?
-      -visitor = notification.visitor
-      -visited = notification.visited
-      .contents
-        = link_to user_path(visitor) do
-          .contents__user
-            .UserImage
-              = image_tag visitor.image, class:"ContetsImage"
-            .UserName
-              = "#{visitor.name}さん"
-        .contents__content
-          .comment
-            - if notification.action == 'dm'
-              = link_to "あなたにDMを送りました","/rooms/#{visited.room.id}"
-          .day
-            = notification.created_at
+      - @notifications.each do |notification|
+        - visitor = notification.visitor
+        - visited = notification.visited
+        .contents
+          = link_to user_path(visitor) do
+            .contents__user
+              .UserImage
+                = image_tag visitor.image.url, class:"ContetsImage"
+              .UserName
+                = "#{visitor.name}さんが"
+          .contents__content
+            .comment
+              - if notification.action == 'dm'
+                あなたに
+                = link_to "メッセージ","/rooms/#{visited.id}"
+                を送りました
+            .day
+              = notification.created_at.strftime('%Y/%m/%d')
     - else
       .contents
         通知がありません
