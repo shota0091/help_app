@@ -2,6 +2,8 @@
 .Modal
   .notification
     通知
+    .close
+      = icon('fas','times')
   .ContentBox
     - if notifications.exists?
       - @notifications.each do |notification|
@@ -13,7 +15,7 @@
               .UserImage
                 = image_tag visitor.image.url, class:"ContetsImage"
               .UserName
-                = "#{visitor.name}さんが"
+                = "#{visitor.name}さん"
           .contents__content
             .comment
               - if notification.action == 'dm'
@@ -21,7 +23,7 @@
                 = link_to "メッセージ","/rooms/#{visited.id}"
                 を送りました
             .day
-              = notification.created_at.strftime('%Y/%m/%d')
+              = time_ago_in_words(notification.created_at)+"前"
     - else
       .contents
         通知がありません
