@@ -2,6 +2,7 @@
   text-align: center;
   border: 1px solid lightgray;
   margin: 0 120px;
+  background-color: white;
   @media(min-width: 1068px) {
     margin: 0 350px;
   }
@@ -10,6 +11,11 @@
     padding-left: 10px;
     text-align: start;
     border-bottom:1px dashed gray;
+    display: flex;
+    justify-content: space-between;
+    .close{
+      margin-right: 10px;
+    }
   }
   .ContentBox{
     overflow: scroll;
