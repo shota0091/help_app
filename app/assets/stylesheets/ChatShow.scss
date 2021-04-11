@@ -2,9 +2,14 @@
   text-decoration: none;
 }
 
+#notifications{
+  
+}
+
 .UserChat{
   display: flex;
   height: 90vh;
+  z-index: 1;
   .UserSide{
     width: 30%;
     &__ChatUsers{
