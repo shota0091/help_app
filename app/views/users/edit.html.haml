@@ -1,10 +1,21 @@
 .LogIn
   .LogIn__page
     .LogIn__page__title
-      Sing Up
+      ユーザー情報の編集
     .LogIn__page__border
     .Form
       = form_with model: @user, url: user_path(@user.id), id: 'new-user', class: 'new_user',local: true do |f|
+        .Form__imageBox
+          .ImageHeading
+            サムネイル
+            .ImageHeading__UserImage 
+          %div#previews
+            .preview
+              .preview__icon
+                = icon('fas', 'image')
+                .preview__text
+                  投稿するとサムネイルが表示されます
+          = f.file_field :image, id:'post_image',class:"FormField-image",accept: "image/png, image/jpeg"
         .Form__name
           .Form__name__title
             ニックネーム※
@@ -13,17 +24,6 @@
             .error__message
               - if @user.errors.include?(:name)
                 = @user.errors.full_messages_for(:name).first
-        .Form__imageBox
-          .ImageHeading
-            サムネイル
-            %span.required※必須
-          %div#previews
-            .preview
-              .preview__icon
-                = icon('fas', 'image')
-                .preview__text
-                  投稿するとサムネイルが表示されます
-          = f.file_field :image, class:"FormField-image",accept: "image/png, image/jpeg"
         .Form__ExplanationBox
           .ExplanationHeading
             自己PR
