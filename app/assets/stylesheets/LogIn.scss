@@ -11,7 +11,7 @@
 .LogIn{
   text-align: center;
   background-color: white;
-  margin: 30px 160px 0;
+  margin: 30px 100px 0;
   @media(min-width: 1068px) {
     margin: 50px 400px 0;
   }
@@ -42,6 +42,25 @@
       margin: 20px 0;
       text-align: start;
       padding:0 30px;
+      &__imageBox{
+        .preview{
+          margin: 10px 0 15px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          border-radius: 1em;
+          border:1px dashed lightslategray;
+          background-color:rgb(245, 245, 245);
+          cursor:pointer;
+          height: 200px;
+  
+        }
+        .FormField-image{
+          display: none;
+      }
+      }
       &__name{
         &__title{
         }
@@ -53,6 +72,13 @@
           }
         }
       }
+      &__ExplanationBox{
+        .ExplanationForm{
+          .FormField-Explanation{
+            width: 100%;
+          }
+        }
+      }
       &__age{
         &__title{
         }
@@ -60,6 +86,13 @@
           width: 100%;
           margin-bottom: 15px;
           .FormField__age{
+            @include form;
+          }
+        }
+      }
+      &__address{
+        &__InputForm{
+          .FormField-adress{
             @include form;
           }
         }

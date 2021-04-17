@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load',function(){
   function buildHTML(url){
     let html = `<div class="prev-content">
-                  <img src="${url}", class="prev-image"></video>
+                  <img src="${url}", class="prev-image"></img>
                     <div class="image-edit">
                       動画を変更する
                     </div>
@@ -46,7 +46,6 @@ $(document).on('turbolinks:load',function(){
   $(document).on('click','.image-edit',function(){
     const file_field = $('input[type="file"]');
     file_field.trigger('click');
-    $
   })
 })
 
