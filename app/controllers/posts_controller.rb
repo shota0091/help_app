@@ -3,9 +3,8 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(10)
-      @serach = Post.ransack(params[:q])
-      @post = @serach.result(distinct: true)
-
+    @serach = Post.ransack(params[:q])
+    @post = @serach.result(distinct: true)
   end
 
   def show
