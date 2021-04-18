@@ -7,9 +7,12 @@
       .TagBox__RegistrationTag
         .title
           登録タグ
+        - if @post.solution == "true"
+          .solution
+            解決済み
         - @post.tags.each do |post|
           .TagBox__RegistrationTag__tags
-            =post.tag_name
+            = post.tag_name
     .ImageBox
       .ImageBox__image
         = image_tag @post.image.url, class:"details-Image"
