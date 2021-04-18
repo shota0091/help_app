@@ -39,19 +39,29 @@
       .MessageContents
         .MessageContents__content
           - @messages.each do |i|
-            .MessageContents__content__UserData
-              .UsersImage
-                = image_tag i.user.image.url ,class:'user-image'
-              .name
-                = i.user.name
-            .MessageContents__content__MessageData
-              .message
-                = i.messages
-              - if i.image.url != nil
-                .MessageImage
-                  = image_tag i.image.url,class:'meassage-image'
-              .day
-                = i.created_at.strftime('%Y/%m/%d %H:%M:%S')
+            - if i.user.id != current_user.id
+              .MessageContents__content__UserData
+                .UsersImage
+                  = image_tag i.user.image.url ,class:'user-image'
+                .name
+                  = i.user.name
+              .MessageContents__content__MessageData
+                .message
+                  = i.messages
+                - if i.image.url != nil
+                  .MessageImage
+                    = image_tag i.image.url,class:'meassage-image'
+                .day
+                  = i.created_at.strftime('%Y/%m/%d %H:%M:%S')
+            - else
+              .MessageContents__content__CuurentMessageData
+                .CuurentMessage
+                  = i.messages
+                - if i.image.url != nil
+                  .CuurentMessageImage
+                    = image_tag i.image.url,class:'meassage-image'
+                .day
+                  = i.created_at.strftime('%Y/%m/%d %H:%M:%S')
     .MessageSide__FormBox
       .Form
         = form_with(model: @message, local: true, id: "chat-commnet") do |f|

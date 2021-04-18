@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
 def show
-  @posts = @user.posts
+  @posts = @user.posts.order("created_at DESC").limit(4)
   @currentUserEntry = Entry.where(user_id: current_user.id)
   @userEntry = Entry.where(user_id: @user.id)
   unless @user.id == current_user.id
@@ -47,6 +47,11 @@ def update
     render :edit
   end
 end
+
+def recruitment_index
+  @posts = @user.posts
+end
+
 
 private
   def user_params

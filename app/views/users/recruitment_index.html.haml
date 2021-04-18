@@ -1,0 +1,31 @@
+.wrapper
+  .wrapper__index
+    .UserName
+      = "#{@user.name}さんの募集一覧"
+      - @posts.each do |i|
+        .contents
+          .contents__image
+            = link_to post_path(i) do
+              = image_tag i.image.url, class:"Image"
+          .contents__title
+            = link_to i.title,post_path(i),class:"text"
+          .contents__tags
+            - i.tags.each do |tag|
+              .tag
+                = tag.tag_name
+            .Address-icon
+              = icon("fa","map-marker-alt")
+            .Address
+              = i.address.name
+          .contents__matter
+            .contents__matter__recruitment
+              = link_to i.explanation,post_path(i),class:"explanation"
+            .contents__matter__user
+              - if i.solution == "true"
+                .solution
+                  解決済み
+                .TimeStamp
+                  = "投稿日:#{i.created_at.strftime('%Y/%m/%d')}"
+              -else
+                .NotSolutionTimeStamp
+                  = "投稿日:#{i.created_at.strftime('%Y/%m/%d')}"

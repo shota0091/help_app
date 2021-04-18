@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
   
   resources :users do
+    member do
+      get 'recruitment_index'
+    end
     resources :reviews, only: :create 
   end
   resources :notifications, only: :index

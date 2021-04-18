@@ -58,4 +58,4 @@
           .PostDay
             = i.created_at.strftime('%Y/%m/%d')
       .PostSide__OneMoer
-        = link_to "過去の募集をみる","#",class:"OenMore-text"
+        = link_to "過去の募集をみる",recruitment_index_user_path(@user.id),class:"OenMore-text"

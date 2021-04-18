@@ -2,9 +2,7 @@
   text-decoration: none;
 }
 
-#notifications{
-  
-}
+
 
 .UserChat{
   display: flex;
@@ -110,7 +108,6 @@
       overflow: scroll;
       background-color: aqua;
       .MessageContents{
-
         &__content{
           margin: 30px 30px 64px 30px;
           &__UserData{
@@ -146,6 +143,28 @@
             .day{
               font-size: 13px;
               color:lightgray;
+              margin-left: 5px;
+            }
+          }
+          &__CuurentMessageData{
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+            .CuurentMessage{
+              margin: 10px 0 0 10px;
+              font-size: 20px;
+            }
+            .CuurentMessageImage{
+              .meassage-image{
+                width: 350px;
+                height: 200px;
+                margin: 15px 10px 20px 0;
+              }
+            }
+            .day{
+              font-size: 13px;
+              color: lightgray;
               margin-left: 5px;
             }
           }
