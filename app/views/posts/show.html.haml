@@ -29,6 +29,11 @@
           投稿者
         .UserBox__matter
           = link_to @post.user.name,user_path(@post.user.id),class: "user-link"
+      .PostDaysBox
+        .PostDaysBox__title 
+          投稿日時
+        .PostDaysBox__time
+          = @post.created_at.strftime('%Y/%m/%d')
       .LicenseBox
         .LicenseBox__title
           必要資格、経験

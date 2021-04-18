@@ -1,11 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post,only: [:show, :destroy,:edit,:update]
-  
-  def index
-    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(10)
-    @q = Post.ransack(params[:q])
-    @post = @q.result(distinct: true)
 
+  def index
+    @q = Post.ransack(params[:q])
+    @results = @q.result.includes(:user).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def show
@@ -48,9 +46,12 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
-    params.require(:post).permit(:title, :explanation, :image, :license_id,:address_id,:obtain,tag_ids: []).merge(user_id: current_user.id)
+    params.require(:post).permit(:solution,:title, :explanation, :image, :license_id,:address_id,:obtain,tag_ids: [],).merge(user_id: current_user.id)
   end
+
+  
 
   def set_post
     @post = Post.find(params[:id])

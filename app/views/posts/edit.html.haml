@@ -1,4 +1,4 @@
-#notifications.form
+.form
   .form__box
     = form_with model: @post, local: true  do |f|
       .contents
@@ -50,6 +50,9 @@
             .error__message
               - if @post.errors.include?(:explanation)
                 = @post.errors.full_messages_for(:explanation).first
+        .solved
+          = f.check_box :solution, {class: 'solved'},true, nil
+          = f.label :solution, "解決済みにする"
         .actions
           = f.submit "編集する", class: "SubmitBtn"
         .delete

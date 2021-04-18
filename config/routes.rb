@@ -16,11 +16,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :reviews, only: :create 
   end
-  resources :notifications, only: :index do
-  collection do
-    get '_index'
-  end
-end
+  resources :notifications, only: :index
   resources :messages, only: [:create]
   resources :rooms, only: [:create,:show]
   resources :tags, only: :show

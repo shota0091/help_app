@@ -1,0 +1,22 @@
+.SearchForm
+  = search_form_for @q  do |f|
+    .SearchForm__InputBox
+      .Inputform
+        = f.search_field  :title_or_explanation_or_tags_tag_name_cont, placeholder: "検索内容を入力"
+      .AreaSelection
+        = f.select :address_id_eq,options_from_collection_for_select(Address.all, :id, :name),{prompt:"登録地を選択"}
+      .SearchOption
+        .SearchOption__solution
+          = f.check_box :solution_null,id: "only-solution"
+          = f.label :solution, "受付中のみ検索", for: "only-solution"
+          = f.check_box :explanation_or_tags_tag_name_not_eq,id: "only-title"
+          = f.label :explanation_or_tags_tag_name, "タイトルのみ検索",for: "only-title"
+          = f.check_box :title_or_tags_tag_name_not_eq,id: "only-explanation"
+          = f.label :title_or_tags_tag_name, "本文のみ検索",for: "only-explanation"
+          = f.check_box :title_or_explanation_not_eq,id: "only-tag"
+          = f.label :title_or_explanation, "タグのみ検索",for: "only-tag"
+      .SendBtn
+        = f.submit '検索'
+      .sort
+        並び替え
+        = sort_link(@q, :created_at, "新着順")

@@ -1,30 +1,40 @@
+= render 'search_form'
 .wrapper
   .wrapper__index
-    - @posts.each do |i|
-      .contents
-        .contents__image
-          = link_to post_path(i) do
-            = image_tag i.image.url, class:"Image"
-        .contents__title
-          = link_to i.title,post_path(i),class:"text"
-        .contents__tags
-          - i.tags.each do |tag|
-            .tag
-              = tag.tag_name
-          .Address-icon
-            = icon("fa","map-marker-alt")
-          .Address
-            = i.address.name
-        .contents__matter
-          .contents__matter__recruitment
-            = link_to i.explanation,post_path(i),class:"explanation"
-          .contents__matter__user
-            .UserImage
-              = image_tag i.user.image.url,class:"image"
-            .UserName
-              = link_to i.user.name,user_path(i.user.id),class:"name"
-            .TimeStamp
-              = "投稿日:#{i.created_at.strftime('%Y/%m/%d')}"
-    .pages
-      .pages__box
-        = paginate @posts
+    - if @results.present?
+      - @results.each do |i|
+        .contents
+          .contents__image
+            = link_to post_path(i) do
+              = image_tag i.image.url, class:"Image"
+          .contents__title
+            = link_to i.title,post_path(i),class:"text"
+          .contents__tags
+            - i.tags.each do |tag|
+              .tag
+                = tag.tag_name
+            .Address-icon
+              = icon("fa","map-marker-alt")
+            .Address
+              = i.address.name
+          .contents__matter
+            .contents__matter__recruitment
+              = link_to i.explanation,post_path(i),class:"explanation"
+            .contents__matter__user
+              .UserImage
+                = image_tag i.user.image.url,class:"image"
+              .UserName
+                = link_to i.user.name,user_path(i.user.id),class:"name"
+              - if i.solution == "true"
+                .solution
+                  解決済み
+              .TimeStamp
+                = "投稿日:#{i.created_at.strftime('%Y/%m/%d')}"
+        .pages
+          .pages__box
+            = paginate @results
+    - else
+      .result
+        検索結果０件です
+        .return
+          = link_to "もどる","/"

@@ -86,9 +86,16 @@
             }
           }
         }
+        .PostDaysBox{
+          display: flex;
+          border-top: 1px solid #dedede;
+          &__title{
+            width: 30%;
+            background-color: #eee;
+        }
+      }
         .LicenseBox{
           border-top: 1px solid #dedede;
-          
           display: flex;
           &__title{
             width: 30%;
