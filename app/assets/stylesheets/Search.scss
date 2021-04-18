@@ -1,0 +1,16 @@
+.SearchForm{
+  width: 100%;
+  &__InputBox{
+    margin: 5px 30px 0;
+    .Inputform{
+      #q_title_or_explanation_or_tags_tag_name_cont{
+        width: 40%;
+        padding-left: 5px;
+        margin-bottom: 5px;
+      }
+    }
+    .sort{
+      text-align: end;
+    }
+  }
+}
