@@ -45,8 +45,8 @@
           %button.EditBtn
             = link_to icon('fas','edit') + "ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
       .UserFollow
-        %button.EditBtn
-          = link_to icon('fas','heart') + "フォローする"
+        %button.FollowBtn
+          = link_to icon('fas','heart') + "フォローする","#",class:"FollowBtn"
       = render 'chat'
     .PostSide
       = "#{@user.name}さんの募集一覧"

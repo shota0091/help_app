@@ -92,6 +92,18 @@
           @include btn;
         }
       }
+      .UserFollow{
+        margin-top: 10px;
+        .FollowBtn{
+          @include btn;
+          .fa-heart{
+            color:pink;
+            .FollowBtn-text{
+              color: white;
+            }
+          }
+        }
+      }
       .UserChat{
         margin: 10px 0;
       }
