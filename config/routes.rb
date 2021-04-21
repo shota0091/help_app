@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   end
   
   resources :users do
+    resources :likes ,only: [:create, :destroy] do
+      member do
+        get 'follows'
+        get 'followers'
+      end
+    end
     member do
       get 'recruitment_index'
     end

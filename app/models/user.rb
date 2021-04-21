@@ -10,15 +10,15 @@ class User < ApplicationRecord
   has_many :active_reviews, class_name: "Review",foreign_key: :reviewing_id
   has_many :reviewings, through: :active_reviews, source: :reviewer
   has_many :passive_reviews, class_name: "Review",foreign_key: :reviewer_id
-  has_many :reviewers, through: :active_reviews, source: :reviewing
+  has_many :reviewers, through: :passive_reviews, source: :reviewing
 
   has_many :active_notifications, class_name: 'Notification', foreign_key: :visitor_id, dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: :visited_id, dependent: :destroy
 
-  has_many :active_follows, class_name: "Follow",foreign_key: :following_id
-  has_many :followings, through: :active_reviews, source: :follower
-  has_many :passive_follows, class_name: "Follow",foreign_key: :follower_id
-  has_many :followers, through: :active_reviews, source: :following
+  has_many :active_follows, class_name: "Like",foreign_key: :following_id
+  has_many :followings, through: :active_follows, source: :follower
+  has_many :passive_follows, class_name: "Like",foreign_key: :follower_id
+  has_many :followers, through: :passive_follows, source: :following
 
   has_many :posts, dependent: :destroy
   has_many :comments,dependent: :destroy
@@ -38,12 +38,12 @@ class User < ApplicationRecord
     end
   end
 
-  def reviewed_by(user)
+  def reviewed_by?(user)
     passive_reviews.find_by(reviewing_id: user.id).present?
   end
 
-  def followed_by(user)
-    passive_reviews.find_by(following_id: user.id).present?
+  def followed_by?(user)
+    passive_follows.find_by(following_id: user.id).present?
   end
 
 end
