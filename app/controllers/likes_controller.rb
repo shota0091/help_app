@@ -1,22 +1,17 @@
 class LikesController < ApplicationController
 
   def create
-    @like = Like.create(likew_params)
-    if @review.save
-      redirect_to "/user/#{@like.user.id}"
+    @like = current_user.active_follows.build(follower_id: params[:user_id])
+    if @like.save
+        redirect_to user_path(@like.follower_id)
     else
       render :show
     end
   end
 
   def destroy
+    @like = current_user.active_follows.find_by(follower_id: params[:user_id])
     @like.destroy
-    redirect_to "/user/#{@like.user.id}"
+    redirect_to user_path(@like.follower_id)
   end
-
-  private
-  def like_params
-    params.require(:like).permit().merge(follower_id: current_user.id, following_id: params[:user_id])
-  end
-end
 end
