@@ -44,15 +44,7 @@
         - if @user.id == current_user.id
           %button.EditBtn
             = link_to icon('fas','edit') + "ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
-      - if @user.id != current_user.id
-        - if @user.followed_by?(current_user)
-          .UserFollow
-            %button.FollowBtn
-              = link_to icon('fas','heart') + "フォロー済み", user_like_path(@user.id), method: :delete,class:"FollowBtn"
-        - else
-          .UserFollow
-            %button.FollowBtn
-              = link_to icon('fas','heart') + "フォローする",user_likes_path(@user.id),method: :post,class:"FollowBtn"
+      = render 'follow'
       = render 'chat'
     .PostSide
       = "#{@user.name}さんの募集一覧"
