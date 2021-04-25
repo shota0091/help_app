@@ -48,12 +48,14 @@
         
       }
       .userAddress{
-        margin-top: 15px;
-        
+        margin-top: 15px; 
         .fa-map-marker-alt{
           color:red;
           margin-right:5px;
         }
+      }
+      .UserFollows{
+        margin-top: 15px;
       }
       .UserEvaluate{
         .EvaluateBtn{
@@ -90,6 +92,18 @@
         margin-top: 10px;
         .EditBtn{
           @include btn;
+        }
+      }
+      .UserFollow{
+        margin: 10px 0;
+        .FollowBtn{
+          @include btn;
+          .fa-heart{
+            color:pink;
+            .FollowBtn-text{
+              color: white;
+            }
+          }
         }
       }
       .UserChat{

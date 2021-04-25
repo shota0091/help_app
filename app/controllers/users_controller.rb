@@ -52,6 +52,16 @@ def recruitment_index
   @posts = @user.posts
 end
 
+def follows
+  user = User.find(params[:id])
+  @users = user.followings.order("created_at DESC").page(params[:page]).per(20)
+end
+
+def followers
+  user = User.find(params[:id])
+  @users = user.followers.order("created_at DESC").page(params[:page]).per(20)
+end
+
 
 private
   def user_params

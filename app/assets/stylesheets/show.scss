@@ -31,7 +31,16 @@
           font-weight:bold;
           border-radius: 5px;
         }
-      
+        .solution{
+          width: 20%;
+            border: 1px solid;
+            border-radius: 20px;
+            background: red;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            margin-left: 5px;
+        }
         &__tags{
           margin-left: 15px;
           padding: 5px 15px;

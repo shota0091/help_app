@@ -5,6 +5,8 @@
         = f.search_field  :title_or_explanation_or_tags_tag_name_cont, placeholder: "検索内容を入力"
       .AreaSelection
         = f.select :address_id_eq,options_from_collection_for_select(Address.all, :id, :name),{prompt:"登録地を選択"}
+      .LicenseSelection
+        = f.select :license_id_lteq,options_from_collection_for_select(License.all, :id, :name),{prompt:"経験条件を選択"}
       .SearchOption
         .SearchOption__solution
           = f.check_box :solution_null,id: "only-solution"

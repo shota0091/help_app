@@ -1,0 +1,37 @@
+.FollowsPage__contens
+  - @users.each do |followes|
+    .user
+      .user__status
+        .image
+          = image_tag followes.image.url,class: "persona-image"
+        .name
+          = link_to user_path(followes.id) do
+            = followes.name
+          .StatusDetails
+            .StatusDetails__age
+              = followes.age
+            .StatusDetails__address
+              - if followes.address == nil
+                = icon("fa","map-marker-alt")+"未登録"
+              -else
+                = icon("fa","map-marker-alt")+"#{followes.address}"
+      .user__explanation
+        - if  followes.explanation == nil || followes.explanation == ""
+          紹介文： 未登録
+        - else
+          = "紹介文： #{followes.explanation}"
+      .user__connection
+        つながり
+        .user__connection__followes 
+          = "フォロー： #{followes.followings.count}人"
+          .user__connection__followes__link 
+            = link_to follows_user_path(followes.id) do
+              = icon("fa","angle-right")
+        .user__connection__followers
+          = "フォロワー： #{followes.followers.count}人"
+          .user__connection__followers__link 
+            = link_to followers_user_path(followes.id) do
+              = icon("fa","angle-right")
+.pages
+  .pages__box
+    = paginate @users

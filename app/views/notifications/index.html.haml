@@ -15,13 +15,16 @@
               .UserImage
                 = image_tag visitor.image.url, class:"ContetsImage"
               .UserName
-                = "#{visitor.name}さん"
+                = "#{visitor.name}さんが"
           .contents__content
             .comment
-              - if notification.action == 'dm'
+              - case notification.action
+              - when 'dm' then
                 あなたに
                 = link_to "メッセージ","/rooms/#{visited.id}"
                 を送りました
+              - when 'follow' then
+                = "あなたをフォローしました"
             .day
               = time_ago_in_words(notification.created_at)+"前"
     - else

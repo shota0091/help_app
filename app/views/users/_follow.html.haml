@@ -1,0 +1,11 @@
+- if @user.id != current_user.id
+  - if @user.followed_by?(current_user)
+    .UserFollow
+      = link_to user_like_path(@user.id), method: :delete,remote: true,class:"FollowBtn" do
+        %button.FollowBtn
+          = icon('fas','heart') + "フォロー解除"
+  - else
+    .UserFollow
+      = link_to user_likes_path(@user.id),method: :post,remote: true,class:"FollowBtn" do
+        %button.FollowBtn
+          =icon('fas','heart') + "フォローする"
