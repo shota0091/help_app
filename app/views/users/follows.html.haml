@@ -1,0 +1,11 @@
+.FollowsPage
+  - if @user.followings.count == 0
+    .FollowsPage__NotFollows
+      = link_to "#{@user.name}さん",user_path(@user.id)
+      はフォローしていません
+    .FollowsPage__return
+      = link_to "戻る","/",class: "return-link"
+  - else
+    .FollowsPage__count
+      = "#{@user.name}さんは#{@user.followings.count}人にフォローされています"
+    = render "FollowPage"

@@ -12,7 +12,7 @@
       .UserIntroduction
         自己PR
       .UserIntroduction__content
-      - if @user.explanation == nil
+      - if @user.explanation == nil ||  @user.explanation == ""
         ユーザー情報編集から自己PRを編集できます
       - else
         = @user.explanation
@@ -21,6 +21,17 @@
           = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : 未登録"
         - else
           = icon("fa","map-marker-alt")+"#{@user.name}さんの住所 : #{@user.address.name}"
+      .UserFollows
+        .UserFollows__contents
+          = "#{@user.name}さんは"
+          .follower
+            = "#{@user.followers.count}人に"
+            = link_to "フォロー",followers_user_path(@user.id),class: "followers-link"
+            されています
+          .following 
+            = "#{@user.followings.count}人を"
+            = link_to "フォロー",follows_user_path(@user.id),class: "followings-link"
+            しています
         - if @user.id != current_user.id
           - if current_user.reviewed_by?(@user)
             .UserEvaluate

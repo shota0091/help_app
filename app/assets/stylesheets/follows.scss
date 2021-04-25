@@ -1,0 +1,54 @@
+.FollowsPage{
+  &__NotFollows,&__return,&__count{
+    text-align: center;
+    margin-top: 20px;
+  }
+  &__contens{
+    margin: 10px 15px 0;
+    padding: 10px;
+    .user{
+      &__status{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        .image{
+          width: 10%;
+          margin-right: 10px;
+          .persona-image{
+            width: 100%;
+            border-radius: 50%;
+          }
+        }
+        .name{
+          .StatusDetails{
+            display: flex;
+            &__age{
+              margin-right: 5px;
+            }
+            &__address{
+              .fa-map-marker-alt{
+                color: red;
+                margin-right: 2px;
+              }
+            }
+          }
+        }
+      }
+      &__explanation{
+        border-top: 1px  dotted;
+        padding: 10px 0;
+      }
+      &__connection{
+        border-top: 1px  dotted;
+        border-bottom: 1px solid;
+        padding: 10px 0;
+        &__followes,&__followers{
+          display: flex;
+          &__link{
+            margin-left: 7px;
+          }
+        }
+      }
+    }
+  }
+}
