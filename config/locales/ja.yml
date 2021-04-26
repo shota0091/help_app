@@ -7,6 +7,9 @@ ja:
         title: "タイトル"
         image: "画像"
         tag_name: "タグ"
+        obtain: "手伝って得られるもの、提供できるもの"
+        address_id: "募集地域"
+        license_id: "経験・資格"
   views:
     pagination:
       first: "&laquo; 最初"

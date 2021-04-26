@@ -2,6 +2,9 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :explanation, presence: {message: 'を投稿してください'}
   validates :image, presence: true
+  validates :license_id, presence: {message: 'を選択してください'}
+  validates :address_id, presence: {message: 'を選択してください'}
+  validates :obtain, presence: true
   mount_uploader :image, ImageUploader
 
   belongs_to :user

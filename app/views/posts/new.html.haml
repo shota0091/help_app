@@ -39,18 +39,27 @@
             %span.required※必須
           .LicensForm
             = f.collection_select :license_id,License.all, :id, :name,{prompt:"選択してください"},class:"FormField-license"
+          .error__message
+            - if @post.errors.include?(:address_id)
+              = @post.errors.full_messages_for(:address_id).first
         .contents__AdressBox
           .AdressHeading
             募集地域
             %span.required※必須
           .AdressForm
             = f.collection_select :address_id,Address.all, :id, :name,{prompt:"選択してください"},class:"FormField-adress"
+          .error__message
+            - if @post.errors.include?(:address_id)
+              = @post.errors.full_messages_for(:address_id).first
         .contents__ObtaineBox
           .ObtainHeading
             手伝って得られるもの、提供できるもの
             %span.required※必須
           .ObtainForm
             = f.text_area :obtain,class:"FormField-obtaine",rows:"4",placeholder: "手伝っていただいた方に提供できる、得られるものを記述しましょう",class:"FormField-obtaine"
+          .error__message
+            - if @post.errors.include?(:obtain)
+              = @post.errors.full_messages_for(:obtain).first
         .contents__ExplanationBox
           .ExplanationHeading
             募集内容
