@@ -69,22 +69,9 @@
           font-weight: bold;
           margin-bottom: 5px;
         }
-        &__Kindness,&__speedy,&__frantically,&__comprehensive{
-          text-align: center;
-          .fa-smile{
-            margin-right: 5px;
-            color:#FF3399;
-          }
-          .fa-shipping-fast{
-            margin-right: 5px;
-            color: aqua;
-          }
-          .fa-redo{
-            margin-right: 5px;
-          }
-          .fa-star{
-            margin-right: 5px;
-            color:#FFFF00;
+        &__Rank{
+          .rank-image{
+            width: 4%;
           }
         }
       }
