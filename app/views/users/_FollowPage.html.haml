@@ -15,6 +15,9 @@
                 = icon("fa","map-marker-alt")+"未登録"
               -else
                 = icon("fa","map-marker-alt")+"#{followes.address}"
+          .Rank
+            = image_tag @rancimage,class: "rank-image"
+            = "#{@ranck}ランク"
       .user__explanation
         - if  followes.explanation == nil || followes.explanation == ""
           紹介文： 未登録

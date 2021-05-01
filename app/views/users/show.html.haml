@@ -42,15 +42,12 @@
                 = "#{@user.name}さんを評価する"
       = render "evaluate"
       .UserStatus
-        他のユーザーの評価
-        .UserStatus__Kindness
-          = icon('fa','smile') + "親切度 : #{@kindness.round(1)} point"
-        .UserStatus__speedy
-          = icon('fa','shipping-fast') +"迅速さ : #{@speedy.round(1)} point"
-        .UserStatus__frantically
-          = icon('fa','redo')+"repeat : #{@frantically.round(1)} point"
-        .UserStatus__comprehensive
-          = icon('fa','star')+"総合力 : #{@comprehensive.round(1)} point"
+        = "#{@user.name}さんのランクは"
+        .UserStatus__Rank
+          = image_tag @rancimage,class: "rank-image"
+          = @ranck
+        .UserStatus__next
+          = @next
       .UserEdit
         - if @user.id == current_user.id
           %button.EditBtn

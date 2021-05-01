@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     if @review.save
-      redirect_to "/user/#{@review.user.id}"
+      redirect_to user_path(params[:user_id])
     else
       render :show
     end
