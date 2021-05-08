@@ -16,6 +16,7 @@ if str
   if str and Gem::Version.correct?(str)
     version = str
     ARGV.shift
+  end
 end
 
 if Gem.respond_to?(:activate_bin_path)
