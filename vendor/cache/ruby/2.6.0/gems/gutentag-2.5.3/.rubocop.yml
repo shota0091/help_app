@@ -1,0 +1,38 @@
+inherit_from:
+  - https://gist.githubusercontent.com/pat/ba3b8ffb1901bfe5439b460943b6b019/raw/.rubocop.yml
+
+require: rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - gemfiles/*.gemfile
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/1_gutentag_tables.rb
+
+Style/MultilineIfModifier:
+  Exclude:
+    - Appraisals
+    - spec/acceptance/tag_names_spec.rb
+
+Style/MultilineTernaryOperator:
+  Exclude:
+    - db/migrate/*.rb
+
+# 0.80
+
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+
+# 0.81
+
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
